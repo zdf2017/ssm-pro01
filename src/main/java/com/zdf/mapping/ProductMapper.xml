@@ -88,7 +88,8 @@
 		SELECT
 		<include refid="Base_Column_List" />
 		FROM t_product 
-		<include refid="Base_Where"></include>
+		<include refid="Base_Where"/>
+		<if test=""></if>
 	</select>
 
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
