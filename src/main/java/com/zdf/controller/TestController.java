@@ -34,7 +34,7 @@ public class TestController {
 		List<Product> resultList = productService.getList(product);
 		TableResult<Product> tableResult = new TableResult<Product>();
 		tableResult.setRows(resultList);
-		tableResult.setTotal(resultList.size());
+		tableResult.setTotal(resultList.size()); 
 		System.out.println("resultList size>>"+resultList.size());
 		return tableResult;
 	}
