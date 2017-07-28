@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value={"test",""})
+@RequestMapping(value={"main",""})
 public class mainController {
 
 	@RequestMapping(value={"/","index"},method=RequestMethod.GET)
@@ -16,6 +16,16 @@ public class mainController {
 		System.out.println("url>>"+requesturl);
 		System.out.println("index");
 		return "index";
+	}
+	
+	
+	/**
+	 * 进入登陆页面
+	 * **/
+	@RequestMapping(value="login",method=RequestMethod.GET)
+	public String login(){
+		System.out.println("登陆");
+		return "login";
 	}
 	
 	

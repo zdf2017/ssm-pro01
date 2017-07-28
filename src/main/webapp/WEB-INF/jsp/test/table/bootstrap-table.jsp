@@ -32,7 +32,8 @@ var TableInit = function () {
     //初始化Table
     oTableInit.Init = function () {
         $('#tb_departments').bootstrapTable({
-            url: '/test/list',         //请求后台的URL（*）
+            //url: '/test/list',         //请求后台的URL（*）
+            url: '/test/page',         //请求后台的URL（*）
             method: 'get',                      //请求方式（*）
             toolbar: '#toolbar',                //工具按钮用哪个容器
             striped: true,                      //是否显示行间隔色
@@ -59,17 +60,36 @@ var TableInit = function () {
             columns: [{
                 checkbox: true
             }, {
-                field: 'Name',
-                title: '部门名称'
+                field: 'proid',
+                title: '商品编号'
             }, {
-                field: 'ParentName',
-                title: '上级部门'
+                field: 'proname',
+                title: '商品名称'
             }, {
-                field: 'Level',
-                title: '部门级别'
+                field: 'manufacturedate',
+                title: '生产日期'
             }, {
-                field: 'Desc',
-                title: '描述'
+                field: 'manufacturesite',
+                title: '生产地区'
+            },{
+                field: 'prostate',
+                title: '商品状态'
+            }, 
+            {
+                field: 'solddate',
+                title: '商品售出日期'
+            }, 
+            {
+                field: 'manufacturesite',
+                title: '生产地区'
+            }, 
+            {
+                field: 'manuid',
+                title: 'manuid'
+            }, 
+            {
+                field: 'prolicense',
+                title: '生产许可证'
             }, ]
         });
     };
@@ -79,8 +99,8 @@ var TableInit = function () {
     	console.log(params);
         var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
             limit: params.limit,   //页面大小
-            offset: params.offset,  //页码
-            departmentname: $("#txt_search_departmentname").val(),
+            pageIndex: params.offset,  //页码
+            proid: 100,
             statu: $("#txt_search_statu").val()
         };
         return temp;

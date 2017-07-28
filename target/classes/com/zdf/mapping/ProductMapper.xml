@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.zdf.dao.shop.ProductDao">
 	<resultMap id="BaseResultMap" type="com.zdf.entity.shop.Product">
-		<id column="proID" property="proid" jdbcType="VARCHAR" />
+		<id column="proid" property="proid" jdbcType="VARCHAR" />
 		<result column="proName" property="proname" jdbcType="VARCHAR" />
 		<result column="manufactureDate" property="manufacturedate"
 			jdbcType="TIMESTAMP" />
@@ -23,19 +23,27 @@
 			jdbcType="TIMESTAMP" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		proID, proName, manufactureDate, manufactureSite,
-		purchaseDate, proState,
-		soldDate,
-		manuID, proLicense,
-		LAST_UPDATED_STAMP, LAST_UPDATED_TX_STAMP, CREATED_STAMP,
-		CREATED_TX_STAMP
+		p.proID as "proid",
+		p.proName as "proname",
+		p.manufactureDate as "manufacturedate",
+		p.manufactureSite as "manufacturesite",
+		p.purchaseDate as "purchasedate",
+		p.proState as "prostate",
+		p.soldDate as "solddate",
+		p.manuID as "manuid",
+		p.proLicense as "prolicense",
+		p.LAST_UPDATED_STAMP as "lastUpdatedStamp",
+		p.LAST_UPDATED_TX_STAMP as "lastUpdatedTxStamp",
+		p.CREATED_STAMP as "createdStamp",
+		p.CREATED_TX_STAMP as "createdTxStamp"
 	</sql>
 
 	<sql id="Base_Where">
 		<where>
-			1=1 
-			<if test="proid != null">
-				AND proID=#{proid,jdbcType=VARCHAR}
+			1=1
+			<if test="proid != null and proid != ''">
+				AND
+				proID=#{proid,jdbcType=VARCHAR}
 			</if>
 			<if test="proname != null">
 				AND proName=#{proname,jdbcType=VARCHAR}
@@ -62,10 +70,12 @@
 				AND proLicense=#{prolicense,jdbcType=VARCHAR}
 			</if>
 			<if test="lastUpdatedStamp != null">
-				AND LAST_UPDATED_STAMP#{lastUpdatedStamp,jdbcType=TIMESTAMP}
+				AND
+				LAST_UPDATED_STAMP#{lastUpdatedStamp,jdbcType=TIMESTAMP}
 			</if>
 			<if test="lastUpdatedTxStamp != null">
-				AND LAST_UPDATED_TX_STAMP=#{lastUpdatedTxStamp,jdbcType=TIMESTAMP}
+				AND
+				LAST_UPDATED_TX_STAMP=#{lastUpdatedTxStamp,jdbcType=TIMESTAMP}
 			</if>
 			<if test="createdStamp != null">
 				AND CREATED_STAMP=#{createdStamp,jdbcType=TIMESTAMP}
@@ -78,18 +88,29 @@
 
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.String">
-		SELECT
+		SELECT 
 		<include refid="Base_Column_List" />
-		FROM t_product
-		WHERE proID = #{proid,jdbcType=VARCHAR}
+		FROM t_product as p
+		WHERE p.proid = #{proid,jdbcType=VARCHAR}
 	</select>
 
-	<select id="findList" parameterType="com.zdf.entity.shop.Product" resultMap="BaseResultMap">
+	<select id="findList" parameterType="com.zdf.entity.shop.Product"
+		resultMap="BaseResultMap">
+		SELECT 
+		<include refid="Base_Column_List" />
+		FROM t_product as p
+		<include refid="Base_Where" />
+		<if
+			test="pageIndex != null and pageIndex != '' and size != null and size != ''">
+			LIMIT #{pageIndex},#{size}
+		</if>
+	</select>
+
+	<select id="selectallList" parameterType="com.zdf.entity.shop.Product"
+		resultMap="BaseResultMap">
 		SELECT
 		<include refid="Base_Column_List" />
-		FROM t_product 
-		<include refid="Base_Where"/>
-		<if test=""></if>
+		FROM t_product as p
 	</select>
 
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">

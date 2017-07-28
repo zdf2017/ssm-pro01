@@ -2,6 +2,7 @@ package com.zdf.dao.shop;
 
 import java.util.List;
 
+import com.zdf.controller.webBean.TableParam;
 import com.zdf.entity.shop.Product;
 
 public interface ProductDao {
@@ -18,4 +19,6 @@ public interface ProductDao {
     int updateByPrimaryKeySelective(Product record);
 
     int updateByPrimaryKey(Product record);
+    
+    public List<Product> selectallList(Product record); 
 }

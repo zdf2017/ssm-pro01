@@ -7,6 +7,6 @@
 <title>ssm-首页</title>
 </head>
 <body>
-
+<a href="main/login">登陆</a>
 </body>
 </html>

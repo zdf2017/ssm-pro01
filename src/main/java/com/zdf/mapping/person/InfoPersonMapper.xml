@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zdf.dao.person.InfoPersonMapper" >
+  <resultMap id="BaseResultMap" type="com.zdf.entity.person.InfoPerson" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="code" property="code" jdbcType="BIGINT" />
+    <result column="person_type" property="personType" jdbcType="CHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="foreign_name" property="foreignName" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="edu_level" property="eduLevel" jdbcType="VARCHAR" />
+    <result column="political" property="political" jdbcType="VARCHAR" />
+    <result column="height" property="height" jdbcType="VARCHAR" />
+    <result column="maria_type" property="mariaType" jdbcType="VARCHAR" />
+    <result column="maria_remark" property="mariaRemark" jdbcType="VARCHAR" />
+    <result column="resi_in_this_city" property="resiInThisCity" jdbcType="CHAR" />
+    <result column="resi_type" property="resiType" jdbcType="VARCHAR" />
+    <result column="resi_loc_type" property="resiLocType" jdbcType="VARCHAR" />
+    <result column="resi_province" property="resiProvince" jdbcType="VARCHAR" />
+    <result column="resi_city" property="resiCity" jdbcType="VARCHAR" />
+    <result column="resi_county" property="resiCounty" jdbcType="VARCHAR" />
+    <result column="resi_addr" property="resiAddr" jdbcType="VARCHAR" />
+    <result column="homeland" property="homeland" jdbcType="VARCHAR" />
+    <result column="native_place" property="nativePlace" jdbcType="VARCHAR" />
+    <result column="only_onechild_flag" property="onlyOnechildFlag" jdbcType="CHAR" />
+    <result column="come_date" property="comeDate" jdbcType="DATE" />
+    <result column="industry" property="industry" jdbcType="VARCHAR" />
+    <result column="occupation" property="occupation" jdbcType="VARCHAR" />
+    <result column="post_title" property="postTitle" jdbcType="VARCHAR" />
+    <result column="health_type" property="healthType" jdbcType="VARCHAR" />
+    <result column="tel1" property="tel1" jdbcType="VARCHAR" />
+    <result column="tel2" property="tel2" jdbcType="VARCHAR" />
+    <result column="tel3" property="tel3" jdbcType="VARCHAR" />
+    <result column="edu_in_this_city" property="eduInThisCity" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="BIGINT" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="BIGINT" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="work_unit" property="workUnit" jdbcType="VARCHAR" />
+    <result column="income_source" property="incomeSource" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="VARCHAR" />
+    <result column="uname" property="uname" jdbcType="VARCHAR" />
+    <result column="have_livecred" property="haveLivecred" jdbcType="CHAR" />
+    <result column="busi_type" property="busiType" jdbcType="VARCHAR" />
+    <result column="busi_data_id" property="busiDataId" jdbcType="VARCHAR" />
+    <result column="cred_type" property="credType" jdbcType="VARCHAR" />
+    <result column="cred_num" property="credNum" jdbcType="VARCHAR" />
+    <result column="cred_image" property="credImage" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code, person_type, name, foreign_name, sex, nation, birthday, edu_level, political, 
+    height, maria_type, maria_remark, resi_in_this_city, resi_type, resi_loc_type, resi_province, 
+    resi_city, resi_county, resi_addr, homeland, native_place, only_onechild_flag, come_date, 
+    industry, occupation, post_title, health_type, tel1, tel2, tel3, edu_in_this_city, 
+    create_by, create_date, update_by, update_date, del_flag, remarks, address, work_unit, 
+    income_source, age, uname, have_livecred, busi_type, busi_data_id, cred_type, cred_num, 
+    cred_image
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from info_tb_person
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from info_tb_person
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zdf.entity.person.InfoPerson" >
+    insert into info_tb_person (id, code, person_type, 
+      name, foreign_name, sex, 
+      nation, birthday, edu_level, 
+      political, height, maria_type, 
+      maria_remark, resi_in_this_city, resi_type, 
+      resi_loc_type, resi_province, resi_city, 
+      resi_county, resi_addr, homeland, 
+      native_place, only_onechild_flag, come_date, 
+      industry, occupation, post_title, 
+      health_type, tel1, tel2, 
+      tel3, edu_in_this_city, create_by, 
+      create_date, update_by, update_date, 
+      del_flag, remarks, address, 
+      work_unit, income_source, age, 
+      uname, have_livecred, busi_type, 
+      busi_data_id, cred_type, cred_num, 
+      cred_image)
+    values (#{id,jdbcType=BIGINT}, #{code,jdbcType=BIGINT}, #{personType,jdbcType=CHAR}, 
+      #{name,jdbcType=VARCHAR}, #{foreignName,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{nation,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, #{eduLevel,jdbcType=VARCHAR}, 
+      #{political,jdbcType=VARCHAR}, #{height,jdbcType=VARCHAR}, #{mariaType,jdbcType=VARCHAR}, 
+      #{mariaRemark,jdbcType=VARCHAR}, #{resiInThisCity,jdbcType=CHAR}, #{resiType,jdbcType=VARCHAR}, 
+      #{resiLocType,jdbcType=VARCHAR}, #{resiProvince,jdbcType=VARCHAR}, #{resiCity,jdbcType=VARCHAR}, 
+      #{resiCounty,jdbcType=VARCHAR}, #{resiAddr,jdbcType=VARCHAR}, #{homeland,jdbcType=VARCHAR}, 
+      #{nativePlace,jdbcType=VARCHAR}, #{onlyOnechildFlag,jdbcType=CHAR}, #{comeDate,jdbcType=DATE}, 
+      #{industry,jdbcType=VARCHAR}, #{occupation,jdbcType=VARCHAR}, #{postTitle,jdbcType=VARCHAR}, 
+      #{healthType,jdbcType=VARCHAR}, #{tel1,jdbcType=VARCHAR}, #{tel2,jdbcType=VARCHAR}, 
+      #{tel3,jdbcType=VARCHAR}, #{eduInThisCity,jdbcType=VARCHAR}, #{createBy,jdbcType=BIGINT}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=BIGINT}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{delFlag,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{workUnit,jdbcType=VARCHAR}, #{incomeSource,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, 
+      #{uname,jdbcType=VARCHAR}, #{haveLivecred,jdbcType=CHAR}, #{busiType,jdbcType=VARCHAR}, 
+      #{busiDataId,jdbcType=VARCHAR}, #{credType,jdbcType=VARCHAR}, #{credNum,jdbcType=VARCHAR}, 
+      #{credImage,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zdf.entity.person.InfoPerson" >
+    insert into info_tb_person
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="personType != null" >
+        person_type,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="foreignName != null" >
+        foreign_name,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="nation != null" >
+        nation,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="eduLevel != null" >
+        edu_level,
+      </if>
+      <if test="political != null" >
+        political,
+      </if>
+      <if test="height != null" >
+        height,
+      </if>
+      <if test="mariaType != null" >
+        maria_type,
+      </if>
+      <if test="mariaRemark != null" >
+        maria_remark,
+      </if>
+      <if test="resiInThisCity != null" >
+        resi_in_this_city,
+      </if>
+      <if test="resiType != null" >
+        resi_type,
+      </if>
+      <if test="resiLocType != null" >
+        resi_loc_type,
+      </if>
+      <if test="resiProvince != null" >
+        resi_province,
+      </if>
+      <if test="resiCity != null" >
+        resi_city,
+      </if>
+      <if test="resiCounty != null" >
+        resi_county,
+      </if>
+      <if test="resiAddr != null" >
+        resi_addr,
+      </if>
+      <if test="homeland != null" >
+        homeland,
+      </if>
+      <if test="nativePlace != null" >
+        native_place,
+      </if>
+      <if test="onlyOnechildFlag != null" >
+        only_onechild_flag,
+      </if>
+      <if test="comeDate != null" >
+        come_date,
+      </if>
+      <if test="industry != null" >
+        industry,
+      </if>
+      <if test="occupation != null" >
+        occupation,
+      </if>
+      <if test="postTitle != null" >
+        post_title,
+      </if>
+      <if test="healthType != null" >
+        health_type,
+      </if>
+      <if test="tel1 != null" >
+        tel1,
+      </if>
+      <if test="tel2 != null" >
+        tel2,
+      </if>
+      <if test="tel3 != null" >
+        tel3,
+      </if>
+      <if test="eduInThisCity != null" >
+        edu_in_this_city,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="workUnit != null" >
+        work_unit,
+      </if>
+      <if test="incomeSource != null" >
+        income_source,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="uname != null" >
+        uname,
+      </if>
+      <if test="haveLivecred != null" >
+        have_livecred,
+      </if>
+      <if test="busiType != null" >
+        busi_type,
+      </if>
+      <if test="busiDataId != null" >
+        busi_data_id,
+      </if>
+      <if test="credType != null" >
+        cred_type,
+      </if>
+      <if test="credNum != null" >
+        cred_num,
+      </if>
+      <if test="credImage != null" >
+        cred_image,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=BIGINT},
+      </if>
+      <if test="personType != null" >
+        #{personType,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="foreignName != null" >
+        #{foreignName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="eduLevel != null" >
+        #{eduLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="political != null" >
+        #{political,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null" >
+        #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="mariaType != null" >
+        #{mariaType,jdbcType=VARCHAR},
+      </if>
+      <if test="mariaRemark != null" >
+        #{mariaRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="resiInThisCity != null" >
+        #{resiInThisCity,jdbcType=CHAR},
+      </if>
+      <if test="resiType != null" >
+        #{resiType,jdbcType=VARCHAR},
+      </if>
+      <if test="resiLocType != null" >
+        #{resiLocType,jdbcType=VARCHAR},
+      </if>
+      <if test="resiProvince != null" >
+        #{resiProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="resiCity != null" >
+        #{resiCity,jdbcType=VARCHAR},
+      </if>
+      <if test="resiCounty != null" >
+        #{resiCounty,jdbcType=VARCHAR},
+      </if>
+      <if test="resiAddr != null" >
+        #{resiAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="homeland != null" >
+        #{homeland,jdbcType=VARCHAR},
+      </if>
+      <if test="nativePlace != null" >
+        #{nativePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="onlyOnechildFlag != null" >
+        #{onlyOnechildFlag,jdbcType=CHAR},
+      </if>
+      <if test="comeDate != null" >
+        #{comeDate,jdbcType=DATE},
+      </if>
+      <if test="industry != null" >
+        #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null" >
+        #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="postTitle != null" >
+        #{postTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="healthType != null" >
+        #{healthType,jdbcType=VARCHAR},
+      </if>
+      <if test="tel1 != null" >
+        #{tel1,jdbcType=VARCHAR},
+      </if>
+      <if test="tel2 != null" >
+        #{tel2,jdbcType=VARCHAR},
+      </if>
+      <if test="tel3 != null" >
+        #{tel3,jdbcType=VARCHAR},
+      </if>
+      <if test="eduInThisCity != null" >
+        #{eduInThisCity,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="workUnit != null" >
+        #{workUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="incomeSource != null" >
+        #{incomeSource,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="uname != null" >
+        #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="haveLivecred != null" >
+        #{haveLivecred,jdbcType=CHAR},
+      </if>
+      <if test="busiType != null" >
+        #{busiType,jdbcType=VARCHAR},
+      </if>
+      <if test="busiDataId != null" >
+        #{busiDataId,jdbcType=VARCHAR},
+      </if>
+      <if test="credType != null" >
+        #{credType,jdbcType=VARCHAR},
+      </if>
+      <if test="credNum != null" >
+        #{credNum,jdbcType=VARCHAR},
+      </if>
+      <if test="credImage != null" >
+        #{credImage,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zdf.entity.person.InfoPerson" >
+    update info_tb_person
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=BIGINT},
+      </if>
+      <if test="personType != null" >
+        person_type = #{personType,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="foreignName != null" >
+        foreign_name = #{foreignName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="eduLevel != null" >
+        edu_level = #{eduLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="political != null" >
+        political = #{political,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null" >
+        height = #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="mariaType != null" >
+        maria_type = #{mariaType,jdbcType=VARCHAR},
+      </if>
+      <if test="mariaRemark != null" >
+        maria_remark = #{mariaRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="resiInThisCity != null" >
+        resi_in_this_city = #{resiInThisCity,jdbcType=CHAR},
+      </if>
+      <if test="resiType != null" >
+        resi_type = #{resiType,jdbcType=VARCHAR},
+      </if>
+      <if test="resiLocType != null" >
+        resi_loc_type = #{resiLocType,jdbcType=VARCHAR},
+      </if>
+      <if test="resiProvince != null" >
+        resi_province = #{resiProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="resiCity != null" >
+        resi_city = #{resiCity,jdbcType=VARCHAR},
+      </if>
+      <if test="resiCounty != null" >
+        resi_county = #{resiCounty,jdbcType=VARCHAR},
+      </if>
+      <if test="resiAddr != null" >
+        resi_addr = #{resiAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="homeland != null" >
+        homeland = #{homeland,jdbcType=VARCHAR},
+      </if>
+      <if test="nativePlace != null" >
+        native_place = #{nativePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="onlyOnechildFlag != null" >
+        only_onechild_flag = #{onlyOnechildFlag,jdbcType=CHAR},
+      </if>
+      <if test="comeDate != null" >
+        come_date = #{comeDate,jdbcType=DATE},
+      </if>
+      <if test="industry != null" >
+        industry = #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null" >
+        occupation = #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="postTitle != null" >
+        post_title = #{postTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="healthType != null" >
+        health_type = #{healthType,jdbcType=VARCHAR},
+      </if>
+      <if test="tel1 != null" >
+        tel1 = #{tel1,jdbcType=VARCHAR},
+      </if>
+      <if test="tel2 != null" >
+        tel2 = #{tel2,jdbcType=VARCHAR},
+      </if>
+      <if test="tel3 != null" >
+        tel3 = #{tel3,jdbcType=VARCHAR},
+      </if>
+      <if test="eduInThisCity != null" >
+        edu_in_this_city = #{eduInThisCity,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="workUnit != null" >
+        work_unit = #{workUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="incomeSource != null" >
+        income_source = #{incomeSource,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="uname != null" >
+        uname = #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="haveLivecred != null" >
+        have_livecred = #{haveLivecred,jdbcType=CHAR},
+      </if>
+      <if test="busiType != null" >
+        busi_type = #{busiType,jdbcType=VARCHAR},
+      </if>
+      <if test="busiDataId != null" >
+        busi_data_id = #{busiDataId,jdbcType=VARCHAR},
+      </if>
+      <if test="credType != null" >
+        cred_type = #{credType,jdbcType=VARCHAR},
+      </if>
+      <if test="credNum != null" >
+        cred_num = #{credNum,jdbcType=VARCHAR},
+      </if>
+      <if test="credImage != null" >
+        cred_image = #{credImage,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zdf.entity.person.InfoPerson" >
+    update info_tb_person
+    set code = #{code,jdbcType=BIGINT},
+      person_type = #{personType,jdbcType=CHAR},
+      name = #{name,jdbcType=VARCHAR},
+      foreign_name = #{foreignName,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=DATE},
+      edu_level = #{eduLevel,jdbcType=VARCHAR},
+      political = #{political,jdbcType=VARCHAR},
+      height = #{height,jdbcType=VARCHAR},
+      maria_type = #{mariaType,jdbcType=VARCHAR},
+      maria_remark = #{mariaRemark,jdbcType=VARCHAR},
+      resi_in_this_city = #{resiInThisCity,jdbcType=CHAR},
+      resi_type = #{resiType,jdbcType=VARCHAR},
+      resi_loc_type = #{resiLocType,jdbcType=VARCHAR},
+      resi_province = #{resiProvince,jdbcType=VARCHAR},
+      resi_city = #{resiCity,jdbcType=VARCHAR},
+      resi_county = #{resiCounty,jdbcType=VARCHAR},
+      resi_addr = #{resiAddr,jdbcType=VARCHAR},
+      homeland = #{homeland,jdbcType=VARCHAR},
+      native_place = #{nativePlace,jdbcType=VARCHAR},
+      only_onechild_flag = #{onlyOnechildFlag,jdbcType=CHAR},
+      come_date = #{comeDate,jdbcType=DATE},
+      industry = #{industry,jdbcType=VARCHAR},
+      occupation = #{occupation,jdbcType=VARCHAR},
+      post_title = #{postTitle,jdbcType=VARCHAR},
+      health_type = #{healthType,jdbcType=VARCHAR},
+      tel1 = #{tel1,jdbcType=VARCHAR},
+      tel2 = #{tel2,jdbcType=VARCHAR},
+      tel3 = #{tel3,jdbcType=VARCHAR},
+      edu_in_this_city = #{eduInThisCity,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=BIGINT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=BIGINT},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      work_unit = #{workUnit,jdbcType=VARCHAR},
+      income_source = #{incomeSource,jdbcType=VARCHAR},
+      age = #{age,jdbcType=VARCHAR},
+      uname = #{uname,jdbcType=VARCHAR},
+      have_livecred = #{haveLivecred,jdbcType=CHAR},
+      busi_type = #{busiType,jdbcType=VARCHAR},
+      busi_data_id = #{busiDataId,jdbcType=VARCHAR},
+      cred_type = #{credType,jdbcType=VARCHAR},
+      cred_num = #{credNum,jdbcType=VARCHAR},
+      cred_image = #{credImage,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

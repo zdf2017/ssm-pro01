@@ -5,7 +5,7 @@ import java.util.List;
 public class TableResult<T extends Object>{
 	
 	private List<T> rows;
-	private int total;
+	private long total;
 	private T entity;
 	
 	public List<T> getRows() {
@@ -14,10 +14,10 @@ public class TableResult<T extends Object>{
 	public void setRows(List<T> rows) {
 		this.rows = rows;
 	}
-	public int getTotal() {
+	public long getTotal() {
 		return total;
 	}
-	public void setTotal(int total) {
+	public void setTotal(long total) {
 		this.total = total;
 	}
 	public T getEntity() {

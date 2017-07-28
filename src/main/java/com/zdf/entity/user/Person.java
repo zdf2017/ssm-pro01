@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Table(name="person",catalog="test")
 public class Person {
 	
-	private String partyId;
+	private String personId;
 	
 	/**姓氏**/
 	private String surname;
@@ -21,14 +21,15 @@ public class Person {
 	/**性别**/
 	private String gender;
 
+
 	@Id
-	@Column(name="party_id")
-	public String getPartyId() {
-		return partyId;
+	@Column(name="person_id")
+	public String getPersonId() {
+		return personId;
 	}
 
-	public void setPartyId(String partyId) {
-		this.partyId = partyId;
+	public void setPersonId(String personId) {
+		this.personId = personId;
 	}
 
 	@Column(name="sur_name")

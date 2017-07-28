@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zdf.dao.person.InfoPersonCredMapper" >
+  <resultMap id="BaseResultMap" type="com.zdf.entity.person.InfoPersonCred" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="person_id" property="personId" jdbcType="BIGINT" />
+    <result column="cred_type" property="credType" jdbcType="VARCHAR" />
+    <result column="cred_num" property="credNum" jdbcType="VARCHAR" />
+    <result column="cred_img" property="credImg" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="brithdate" property="brithdate" jdbcType="DATE" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="government" property="government" jdbcType="VARCHAR" />
+    <result column="areacode" property="areacode" jdbcType="VARCHAR" />
+    <result column="validity_sdate" property="validitySdate" jdbcType="TIMESTAMP" />
+    <result column="validity_edate" property="validityEdate" jdbcType="TIMESTAMP" />
+    <result column="create_by" property="createBy" jdbcType="BIGINT" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="BIGINT" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="faceimg" property="faceimg" jdbcType="VARCHAR" />
+    <result column="versoimg" property="versoimg" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, person_id, cred_type, cred_num, cred_img, name, brithdate, address, government, 
+    areacode, validity_sdate, validity_edate, create_by, create_date, update_by, update_date, 
+    del_flag, remarks, faceimg, versoimg
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from info_tb_person_cred
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from info_tb_person_cred
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zdf.entity.person.InfoPersonCred" >
+    insert into info_tb_person_cred (id, person_id, cred_type, 
+      cred_num, cred_img, name, 
+      brithdate, address, government, 
+      areacode, validity_sdate, validity_edate, 
+      create_by, create_date, update_by, 
+      update_date, del_flag, remarks, 
+      faceimg, versoimg)
+    values (#{id,jdbcType=BIGINT}, #{personId,jdbcType=BIGINT}, #{credType,jdbcType=VARCHAR}, 
+      #{credNum,jdbcType=VARCHAR}, #{credImg,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{brithdate,jdbcType=DATE}, #{address,jdbcType=VARCHAR}, #{government,jdbcType=VARCHAR}, 
+      #{areacode,jdbcType=VARCHAR}, #{validitySdate,jdbcType=TIMESTAMP}, #{validityEdate,jdbcType=TIMESTAMP}, 
+      #{createBy,jdbcType=BIGINT}, #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=BIGINT}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{faceimg,jdbcType=VARCHAR}, #{versoimg,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zdf.entity.person.InfoPersonCred" >
+    insert into info_tb_person_cred
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="personId != null" >
+        person_id,
+      </if>
+      <if test="credType != null" >
+        cred_type,
+      </if>
+      <if test="credNum != null" >
+        cred_num,
+      </if>
+      <if test="credImg != null" >
+        cred_img,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="brithdate != null" >
+        brithdate,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="government != null" >
+        government,
+      </if>
+      <if test="areacode != null" >
+        areacode,
+      </if>
+      <if test="validitySdate != null" >
+        validity_sdate,
+      </if>
+      <if test="validityEdate != null" >
+        validity_edate,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="faceimg != null" >
+        faceimg,
+      </if>
+      <if test="versoimg != null" >
+        versoimg,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="personId != null" >
+        #{personId,jdbcType=BIGINT},
+      </if>
+      <if test="credType != null" >
+        #{credType,jdbcType=VARCHAR},
+      </if>
+      <if test="credNum != null" >
+        #{credNum,jdbcType=VARCHAR},
+      </if>
+      <if test="credImg != null" >
+        #{credImg,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="brithdate != null" >
+        #{brithdate,jdbcType=DATE},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="government != null" >
+        #{government,jdbcType=VARCHAR},
+      </if>
+      <if test="areacode != null" >
+        #{areacode,jdbcType=VARCHAR},
+      </if>
+      <if test="validitySdate != null" >
+        #{validitySdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validityEdate != null" >
+        #{validityEdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="faceimg != null" >
+        #{faceimg,jdbcType=VARCHAR},
+      </if>
+      <if test="versoimg != null" >
+        #{versoimg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zdf.entity.person.InfoPersonCred" >
+    update info_tb_person_cred
+    <set >
+      <if test="personId != null" >
+        person_id = #{personId,jdbcType=BIGINT},
+      </if>
+      <if test="credType != null" >
+        cred_type = #{credType,jdbcType=VARCHAR},
+      </if>
+      <if test="credNum != null" >
+        cred_num = #{credNum,jdbcType=VARCHAR},
+      </if>
+      <if test="credImg != null" >
+        cred_img = #{credImg,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="brithdate != null" >
+        brithdate = #{brithdate,jdbcType=DATE},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="government != null" >
+        government = #{government,jdbcType=VARCHAR},
+      </if>
+      <if test="areacode != null" >
+        areacode = #{areacode,jdbcType=VARCHAR},
+      </if>
+      <if test="validitySdate != null" >
+        validity_sdate = #{validitySdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validityEdate != null" >
+        validity_edate = #{validityEdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="faceimg != null" >
+        faceimg = #{faceimg,jdbcType=VARCHAR},
+      </if>
+      <if test="versoimg != null" >
+        versoimg = #{versoimg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zdf.entity.person.InfoPersonCred" >
+    update info_tb_person_cred
+    set person_id = #{personId,jdbcType=BIGINT},
+      cred_type = #{credType,jdbcType=VARCHAR},
+      cred_num = #{credNum,jdbcType=VARCHAR},
+      cred_img = #{credImg,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      brithdate = #{brithdate,jdbcType=DATE},
+      address = #{address,jdbcType=VARCHAR},
+      government = #{government,jdbcType=VARCHAR},
+      areacode = #{areacode,jdbcType=VARCHAR},
+      validity_sdate = #{validitySdate,jdbcType=TIMESTAMP},
+      validity_edate = #{validityEdate,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=BIGINT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=BIGINT},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      faceimg = #{faceimg,jdbcType=VARCHAR},
+      versoimg = #{versoimg,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

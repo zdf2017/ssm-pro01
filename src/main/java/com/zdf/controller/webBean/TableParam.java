@@ -3,23 +3,24 @@ package com.zdf.controller.webBean;
 /**
  * 封装bootstrapTable查询参数
  **/
-public class TableParam<T extends Object> {
+public class TableParam {
 
 	/** 每页的大小 **/
 	private int size;
 	/** 分页起始页码 **/
 	private int pageIndex;
 
+	private int limit;
+
 	private String status;
 	/** 排序 **/
 	private String order;
 	/** 查询标志 **/
 	private String search;
-	/**表示实体对象**/
-	private T entity;
-	
-	/**查找的对象**/
+
+	/** 查找的对象 **/
 	private String name;
+
 	public int getSize() {
 		return size;
 	}
@@ -60,20 +61,20 @@ public class TableParam<T extends Object> {
 		this.search = search;
 	}
 
-	public T getEntity() {
-		return entity;
-	}
-
-	public void setEntity(T entity) {
-		this.entity = entity;
-	}
-
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getLimit() {
+		return limit;
+	}
+
+	public void setLimit(int limit) {
+		this.limit = limit;
 	}
 
 }
