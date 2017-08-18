@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.zdf.controller.webBean.TableParam;
-import com.zdf.controller.webBean.TableResult;
+import com.zdf.controller.webUtils.TableParam;
+import com.zdf.controller.webUtils.TableResult;
 import com.zdf.entity.shop.Product;
 import com.zdf.services.ProductService;
 

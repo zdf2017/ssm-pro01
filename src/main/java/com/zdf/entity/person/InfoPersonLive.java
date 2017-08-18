@@ -46,6 +46,13 @@ public class InfoPersonLive {
     private Long subjectId;
 
     private String subjectType;
+    
+    /**
+     * 外键实体
+     * **/
+    private InfoPerson person;
+    
+    private InfoPersonCred personCred;
 
     public Long getId() {
         return id;
@@ -222,4 +229,21 @@ public class InfoPersonLive {
     public void setSubjectType(String subjectType) {
         this.subjectType = subjectType == null ? null : subjectType.trim();
     }
+
+	public InfoPerson getPerson() {
+		return person;
+	}
+
+	public void setPerson(InfoPerson person) {
+		this.person = person;
+	}
+
+	public InfoPersonCred getPersonCred() {
+		return personCred;
+	}
+
+	public void setPersonCred(InfoPersonCred personCred) {
+		this.personCred = personCred;
+	}
+    
 }

@@ -3,7 +3,7 @@ package com.zdf.services;
 import java.util.List;
 
 import com.github.pagehelper.PageInfo;
-import com.zdf.controller.webBean.TableParam;
+import com.zdf.controller.webUtils.TableParam;
 import com.zdf.entity.shop.Product;
 
 

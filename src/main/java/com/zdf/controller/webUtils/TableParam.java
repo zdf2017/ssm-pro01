@@ -1,4 +1,4 @@
-package com.zdf.controller.webBean;
+package com.zdf.controller.webUtils;
 
 /**
  * 封装bootstrapTable查询参数

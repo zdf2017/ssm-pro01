@@ -2,7 +2,7 @@ package com.zdf.dao.shop;
 
 import java.util.List;
 
-import com.zdf.controller.webBean.TableParam;
+import com.zdf.controller.webUtils.TableParam;
 import com.zdf.entity.shop.Product;
 
 public interface ProductDao {

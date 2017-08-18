@@ -28,6 +28,14 @@ public class mainController {
 		return "login";
 	}
 	
+	/**
+	 * 通用404页面
+	 * **/
+	@RequestMapping(value={"404"})
+	public String error404(){
+		return "ccommon/404";
+	}
+	
 	
 	
 }

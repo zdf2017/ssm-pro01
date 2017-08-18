@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.zdf.controller.webBean.TableParam;
+import com.zdf.controller.webUtils.TableParam;
 import com.zdf.dao.shop.ProductDao;
 import com.zdf.entity.shop.Product;
 import com.zdf.services.ProductService;
@@ -27,7 +27,7 @@ public class ProductServiceImpl implements ProductService{
 
 	public PageInfo<Product> getPageList(Product product, TableParam param) {
 		PageHelper.startPage(param.getPageIndex(), param.getSize()); 
-	    PageHelper.orderBy("createdStamp desc"); 
+	    
 	    List<Product> list = productDao.selectallList(product);
 	     PageInfo<Product> pageInfo = new PageInfo<Product>(list); 
 		return pageInfo;

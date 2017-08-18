@@ -37,6 +37,49 @@
     from info_tb_person_live
     where id = #{id,jdbcType=BIGINT}
   </select>
+  
+  <!-- 关联人口 -->
+  <select id="finList" resultType="com.zdf.entity.person.InfoPersonLive">
+   SELECT 
+    a.id as 'id',
+  	a.build_id as 'buildId',
+   	a.floor_id as 'floorId',
+   	a.room_id as 'roomId',
+   	a.live_way as 'liveWay',
+   	a.live_reason as 'liveReason',
+   	a.live_sdate as 'liveSdate',
+   	a.live_edate as 'liveEdate',
+   	a.create_by as 'createBy',
+   	a.create_date as 'createDate',
+   	a.update_date as 'updateDate',
+   	a.update_by as 'updateBy',
+   	p.name as 'person.name',
+   	p.person_type as 'person.personType',
+   	p.sex as 'person.sex',
+   	p.nation as 'person.nation',
+   	p.edu_level as 'person.eduLevel',
+   	p.political as 'person.political',
+   	p.maria_type as 'person.mariaType',
+   	p.cred_type as 'person.credType',
+   	c.cred_num as 'personCred.credNum',
+   	c.address as 'personCred.address',
+   	c.government as 'personCred.government'
+  FROM info_tb_person_live a
+  LEFT JOIN info_tb_person p ON a.person_id=p.id
+  LEFT JOIN info_tb_person_cred c ON p.id=c.person_id
+  <where>
+  	<if test="id != null and id != ''">AND a.id=#{id}</if>
+  	
+  	<choose>
+  	<when test="personId != null and personId != ''">AND p.id=#{personId}</when>
+  	<when test="person != null and person.id != null and person.id != ''">
+  		AND p.id=#{person.id}</when>
+  	</choose>
+  	
+  </where>
+  </select>
+  
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from info_tb_person_live
     where id = #{id,jdbcType=BIGINT}
