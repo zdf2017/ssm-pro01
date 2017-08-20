@@ -2,8 +2,9 @@ package com.zdf.entity.person;
 
 import java.util.Date;
 
-public class InfoPersonCred {
-    private Long id;
+import com.zdf.entity.base.BaseEntity;
+
+public class InfoPersonCred  extends BaseEntity{
 
     private Long personId;
 

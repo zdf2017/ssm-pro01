@@ -7,7 +7,12 @@
 <title>人口居住信息</title>
 </head>
 <body>
-${personLive }
-${personLive.personId }
+entity:${personLive }<br/>
+personid:${personLive.personId }<br/>
+<br>
+缓存：
+entity:${ehpersonLive }<br/>
+personid:${ehpersonLive.personId }<br/>
+
 </body>
 </html>

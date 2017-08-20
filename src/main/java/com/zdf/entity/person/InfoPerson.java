@@ -2,8 +2,9 @@ package com.zdf.entity.person;
 
 import java.util.Date;
 
-public class InfoPerson {
-    private Long id;
+import com.zdf.entity.base.BaseEntity;
+
+public class InfoPerson extends BaseEntity{
 
     private Long code;
 
@@ -100,14 +101,6 @@ public class InfoPerson {
     private String credNum;
 
     private String credImage;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getCode() {
         return code;

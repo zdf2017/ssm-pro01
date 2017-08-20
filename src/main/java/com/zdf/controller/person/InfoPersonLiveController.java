@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ import com.zdf.services.person.InfoPersonLiveService;
 @Controller
 @RequestMapping(value="personLive")
 public class InfoPersonLiveController {
+	
 	@Autowired
 	private InfoPersonLiveService infoPersonLive;
 	
@@ -32,9 +34,14 @@ public class InfoPersonLiveController {
 
 	@RequestMapping(value={"form","info"},method=RequestMethod.GET)
 	public String PersonLiveInfo(InfoPersonLive personLive,Model model){
+		long start = System.currentTimeMillis();
 		InfoPersonLive info = infoPersonLive.selectByPrimaryKey(personLive);
-		
+		long stop1 = System.currentTimeMillis();
+		InfoPersonLive infoe = infoPersonLive.selectCacheByPrimaryKey(personLive.getId());
+		long stop2 = System.currentTimeMillis();
+		logger.error("使用缓存>>"+(stop2-start)+"  不使用缓存>>>"+(stop1-start));
 		model.addAttribute("personLive", info);
+		model.addAttribute("ehpersonLive",infoe);
 		return "person/personLive-info";
 	}
 	
@@ -57,6 +64,7 @@ public class InfoPersonLiveController {
 	
 	@ResponseBody
 	@RequestMapping(value={"pagelist"},method=RequestMethod.GET)
+	@Cacheable(value="myCache",key="'getJsonPage-' +#pageNum")
 	public TablePage<InfoPersonLive> getJsonPage(InfoPersonLive personLive,@RequestParam(value="pageSize") int pageSize,
 			@RequestParam(value="pageNum")int pageNum){
 		logger.error("开始查询");

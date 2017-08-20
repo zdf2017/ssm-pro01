@@ -8,5 +8,6 @@ public interface InfoPersonLiveService {
 	
 	public List<InfoPersonLive> findList(InfoPersonLive personlive);
 	public InfoPersonLive selectByPrimaryKey(InfoPersonLive personlive);
+	public InfoPersonLive selectCacheByPrimaryKey(long personliveId);
 
 }

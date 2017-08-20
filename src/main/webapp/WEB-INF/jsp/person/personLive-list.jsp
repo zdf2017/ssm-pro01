@@ -155,6 +155,13 @@ var TableInit = function () {
             },{
                 field: 'updateBy',
                 title: '更新人'
+            },{
+            	field:'id',
+            	title:'操作',
+            	formatter:function(value,row,index){  
+                    var e = '<a href="/personLive/info?id='+value+'">详情</a> ';
+                 return e;  
+            	}
             }]
         });
     };
