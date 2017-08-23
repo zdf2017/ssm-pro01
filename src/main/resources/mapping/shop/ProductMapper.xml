@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssmsite.modules.shop.dao.ProductDao">
+	<resultMap id="BaseResultMap" type="com.ssmsite.modules.shop.entity.Product">
+		<id column="proid" property="proid" jdbcType="VARCHAR" />
+		<result column="proName" property="proname" jdbcType="VARCHAR" />
+		<result column="manufactureDate" property="manufacturedate"
+			jdbcType="TIMESTAMP" />
+		<result column="manufactureSite" property="manufacturesite"
+			jdbcType="VARCHAR" />
+		<result column="purchaseDate" property="purchasedate" jdbcType="TIMESTAMP" />
+		<result column="proState" property="prostate" jdbcType="CHAR" />
+		<result column="soldDate" property="solddate" jdbcType="TIMESTAMP" />
+		<result column="manuID" property="manuid" jdbcType="VARCHAR" />
+		<result column="proLicense" property="prolicense" jdbcType="VARCHAR" />
+		<result column="LAST_UPDATED_STAMP" property="lastUpdatedStamp"
+			jdbcType="TIMESTAMP" />
+		<result column="LAST_UPDATED_TX_STAMP" property="lastUpdatedTxStamp"
+			jdbcType="TIMESTAMP" />
+		<result column="CREATED_STAMP" property="createdStamp"
+			jdbcType="TIMESTAMP" />
+		<result column="CREATED_TX_STAMP" property="createdTxStamp"
+			jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		p.proID as "proid",
+		p.proName as "proname",
+		p.manufactureDate as "manufacturedate",
+		p.manufactureSite as "manufacturesite",
+		p.purchaseDate as "purchasedate",
+		p.proState as "prostate",
+		p.soldDate as "solddate",
+		p.manuID as "manuid",
+		p.proLicense as "prolicense",
+		p.LAST_UPDATED_STAMP as "lastUpdatedStamp",
+		p.LAST_UPDATED_TX_STAMP as "lastUpdatedTxStamp",
+		p.CREATED_STAMP as "createdStamp",
+		p.CREATED_TX_STAMP as "createdTxStamp"
+	</sql>
+
+	<sql id="Base_Where">
+		<where>
+			1=1
+			<if test="proid != null and proid != ''">
+				AND
+				proID=#{proid,jdbcType=VARCHAR}
+			</if>
+			<if test="proname != null">
+				AND proName=#{proname,jdbcType=VARCHAR}
+			</if>
+			<if test="manufacturedate != null">
+				AND manufactureDate=#{manufacturedate,jdbcType=TIMESTAMP}
+			</if>
+			<if test="manufacturesite != null">
+				AND manufactureSite=#{manufacturedate,jdbcType=TIMESTAMP}
+			</if>
+			<if test="purchasedate != null">
+				AND purchaseDate=#{purchasedate,jdbcType=TIMESTAMP}
+			</if>
+			<if test="prostate != null">
+				AND proState=#{prostate,jdbcType=CHAR}
+			</if>
+			<if test="solddate != null">
+				AND soldDate=#{solddate,jdbcType=TIMESTAMP}
+			</if>
+			<if test="manuid != null">
+				AND manuID=#{manuid,jdbcType=VARCHAR}
+			</if>
+			<if test="prolicense != null">
+				AND proLicense=#{prolicense,jdbcType=VARCHAR}
+			</if>
+			<if test="lastUpdatedStamp != null">
+				AND
+				LAST_UPDATED_STAMP#{lastUpdatedStamp,jdbcType=TIMESTAMP}
+			</if>
+			<if test="lastUpdatedTxStamp != null">
+				AND
+				LAST_UPDATED_TX_STAMP=#{lastUpdatedTxStamp,jdbcType=TIMESTAMP}
+			</if>
+			<if test="createdStamp != null">
+				AND CREATED_STAMP=#{createdStamp,jdbcType=TIMESTAMP}
+			</if>
+			<if test="createdTxStamp != null">
+				AND CREATED_TX_STAMP=#{createdTxStamp,jdbcType=TIMESTAMP}
+			</if>
+		</where>
+	</sql>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		SELECT 
+		<include refid="Base_Column_List" />
+		FROM t_product as p
+		WHERE p.proid = #{proid,jdbcType=VARCHAR}
+	</select>
+
+	<select id="findList" parameterType="com.ssmsite.modules.shop.entity.Product"
+		resultMap="BaseResultMap">
+		SELECT 
+		<include refid="Base_Column_List" />
+		FROM t_product as p
+		<include refid="Base_Where" />
+		<if
+			test="pageIndex != null and pageIndex != '' and size != null and size != ''">
+			LIMIT #{pageIndex},#{size}
+		</if>
+	</select>
+
+	<select id="selectallList" parameterType="com.ssmsite.modules.shop.entity.Product"
+		resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM t_product as p
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from
+		t_product
+		WHERE proID = #{proid,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.ssmsite.modules.shop.entity.Product">
+		INSERT INTO t_product (proID,
+		proName, manufactureDate,
+		manufactureSite, purchaseDate, proState,
+		soldDate, manuID, proLicense,
+		LAST_UPDATED_STAMP,
+		LAST_UPDATED_TX_STAMP,
+		CREATED_STAMP, CREATED_TX_STAMP)
+		VALUES
+		(#{proid,jdbcType=VARCHAR}, #{proname,jdbcType=VARCHAR},
+		#{manufacturedate,jdbcType=TIMESTAMP},
+		#{manufacturesite,jdbcType=VARCHAR},
+		#{purchasedate,jdbcType=TIMESTAMP}, #{prostate,jdbcType=CHAR},
+		#{solddate,jdbcType=TIMESTAMP}, #{manuid,jdbcType=VARCHAR},
+		#{prolicense,jdbcType=VARCHAR},
+		#{lastUpdatedStamp,jdbcType=TIMESTAMP},
+		#{lastUpdatedTxStamp,jdbcType=TIMESTAMP},
+		#{createdStamp,jdbcType=TIMESTAMP},
+		#{createdTxStamp,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective" parameterType="com.ssmsite.modules.shop.entity.Product">
+		INSERT INTO t_product
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="proid != null">
+				proID,
+			</if>
+			<if test="proname != null">
+				proName,
+			</if>
+			<if test="manufacturedate != null">
+				manufactureDate,
+			</if>
+			<if test="manufacturesite != null">
+				manufactureSite,
+			</if>
+			<if test="purchasedate != null">
+				purchaseDate,
+			</if>
+			<if test="prostate != null">
+				proState,
+			</if>
+			<if test="solddate != null">
+				soldDate,
+			</if>
+			<if test="manuid != null">
+				manuID,
+			</if>
+			<if test="prolicense != null">
+				proLicense,
+			</if>
+			<if test="lastUpdatedStamp != null">
+				LAST_UPDATED_STAMP,
+			</if>
+			<if test="lastUpdatedTxStamp != null">
+				LAST_UPDATED_TX_STAMP,
+			</if>
+			<if test="createdStamp != null">
+				CREATED_STAMP,
+			</if>
+			<if test="createdTxStamp != null">
+				CREATED_TX_STAMP,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="proid != null">
+				#{proid,jdbcType=VARCHAR},
+			</if>
+			<if test="proname != null">
+				#{proname,jdbcType=VARCHAR},
+			</if>
+			<if test="manufacturedate != null">
+				#{manufacturedate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="manufacturesite != null">
+				#{manufacturesite,jdbcType=VARCHAR},
+			</if>
+			<if test="purchasedate != null">
+				#{purchasedate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="prostate != null">
+				#{prostate,jdbcType=CHAR},
+			</if>
+			<if test="solddate != null">
+				#{solddate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="manuid != null">
+				#{manuid,jdbcType=VARCHAR},
+			</if>
+			<if test="prolicense != null">
+				#{prolicense,jdbcType=VARCHAR},
+			</if>
+			<if test="lastUpdatedStamp != null">
+				#{lastUpdatedStamp,jdbcType=TIMESTAMP},
+			</if>
+			<if test="lastUpdatedTxStamp != null">
+				#{lastUpdatedTxStamp,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createdStamp != null">
+				#{createdStamp,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createdTxStamp != null">
+				#{createdTxStamp,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.ssmsite.modules.shop.entity.Product">
+		UPDATE t_product
+		<set>
+			<if test="proname != null">
+				proName = #{proname,jdbcType=VARCHAR},
+			</if>
+			<if test="manufacturedate != null">
+				manufactureDate = #{manufacturedate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="manufacturesite != null">
+				manufactureSite = #{manufacturesite,jdbcType=VARCHAR},
+			</if>
+			<if test="purchasedate != null">
+				purchaseDate = #{purchasedate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="prostate != null">
+				proState = #{prostate,jdbcType=CHAR},
+			</if>
+			<if test="solddate != null">
+				soldDate = #{solddate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="manuid != null">
+				manuID = #{manuid,jdbcType=VARCHAR},
+			</if>
+			<if test="prolicense != null">
+				proLicense = #{prolicense,jdbcType=VARCHAR},
+			</if>
+			<if test="lastUpdatedStamp != null">
+				LAST_UPDATED_STAMP =
+				#{lastUpdatedStamp,jdbcType=TIMESTAMP},
+			</if>
+			<if test="lastUpdatedTxStamp != null">
+				LAST_UPDATED_TX_STAMP =
+				#{lastUpdatedTxStamp,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createdStamp != null">
+				CREATED_STAMP = #{createdStamp,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createdTxStamp != null">
+				CREATED_TX_STAMP = #{createdTxStamp,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		WHERE proID = #{proid,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.ssmsite.modules.shop.entity.Product">
+		update t_product
+		set proName = #{proname,jdbcType=VARCHAR},
+		manufactureDate =
+		#{manufacturedate,jdbcType=TIMESTAMP},
+		manufactureSite =
+		#{manufacturesite,jdbcType=VARCHAR},
+		purchaseDate =
+		#{purchasedate,jdbcType=TIMESTAMP},
+		proState =
+		#{prostate,jdbcType=CHAR},
+		soldDate = #{solddate,jdbcType=TIMESTAMP},
+		manuID = #{manuid,jdbcType=VARCHAR},
+		proLicense =
+		#{prolicense,jdbcType=VARCHAR},
+		LAST_UPDATED_STAMP =
+		#{lastUpdatedStamp,jdbcType=TIMESTAMP},
+		LAST_UPDATED_TX_STAMP =
+		#{lastUpdatedTxStamp,jdbcType=TIMESTAMP},
+		CREATED_STAMP =
+		#{createdStamp,jdbcType=TIMESTAMP},
+		CREATED_TX_STAMP =
+		#{createdTxStamp,jdbcType=TIMESTAMP}
+		WHERE proID =
+		#{proid,jdbcType=VARCHAR}
+	</update>
+</mapper>
