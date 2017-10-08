@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssmsite.modules.building.dao.InfoSubjectBuildingMapper" >
+  <resultMap id="BaseResultMap" type="com.ssmsite.modules.building.entity.InfoSubjectBuilding" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="code" property="code" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="org_id" property="orgId" jdbcType="BIGINT" />
+    <result column="grid_id" property="gridId" jdbcType="BIGINT" />
+    <result column="building_type" property="buildingType" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="building_nature" property="buildingNature" jdbcType="VARCHAR" />
+    <result column="structure" property="structure" jdbcType="VARCHAR" />
+    <result column="floor_surfacenum" property="floorSurfacenum" jdbcType="VARCHAR" />
+    <result column="use_sdate" property="useSdate" jdbcType="DATE" />
+    <result column="housenum_addr1" property="housenumAddr1" jdbcType="VARCHAR" />
+    <result column="housenum_addr2" property="housenumAddr2" jdbcType="VARCHAR" />
+    <result column="other_addr1" property="otherAddr1" jdbcType="VARCHAR" />
+    <result column="other_addr2" property="otherAddr2" jdbcType="VARCHAR" />
+    <result column="prop_right_addr" property="propRightAddr" jdbcType="VARCHAR" />
+    <result column="has_monitor" property="hasMonitor" jdbcType="CHAR" />
+    <result column="has_entrance_guard" property="hasEntranceGuard" jdbcType="CHAR" />
+    <result column="use_edate" property="useEdate" jdbcType="DATE" />
+    <result column="floor_undernum" property="floorUndernum" jdbcType="VARCHAR" />
+    <result column="height_type" property="heightType" jdbcType="VARCHAR" />
+    <result column="height" property="height" jdbcType="VARCHAR" />
+    <result column="park_surfacenum" property="parkSurfacenum" jdbcType="INTEGER" />
+    <result column="park_undernum" property="parkUndernum" jdbcType="INTEGER" />
+    <result column="cover_area" property="coverArea" jdbcType="VARCHAR" />
+    <result column="floor_space" property="floorSpace" jdbcType="VARCHAR" />
+    <result column="use_area" property="useArea" jdbcType="VARCHAR" />
+    <result column="main_use" property="mainUse" jdbcType="VARCHAR" />
+    <result column="units" property="units" jdbcType="VARCHAR" />
+    <result column="complete_date" property="completeDate" jdbcType="DATE" />
+    <result column="design_purpose" property="designPurpose" jdbcType="VARCHAR" />
+    <result column="use_purpose" property="usePurpose" jdbcType="VARCHAR" />
+    <result column="use_situation" property="useSituation" jdbcType="VARCHAR" />
+    <result column="geography" property="geography" jdbcType="VARCHAR" />
+    <result column="coor_id" property="coorId" jdbcType="BIGINT" />
+    <result column="fire_ctrlroom_situation" property="fireCtrlroomSituation" jdbcType="VARCHAR" />
+    <result column="fire_ctrlroom_position" property="fireCtrlroomPosition" jdbcType="VARCHAR" />
+    <result column="fire_lift_num" property="fireLiftNum" jdbcType="INTEGER" />
+    <result column="fire_lift_position" property="fireLiftPosition" jdbcType="VARCHAR" />
+    <result column="fire_proof_level" property="fireProofLevel" jdbcType="VARCHAR" />
+    <result column="fire_fac_situation" property="fireFacSituation" jdbcType="VARCHAR" />
+    <result column="sanc_floor_num" property="sancFloorNum" jdbcType="INTEGER" />
+    <result column="sanc_floor_area" property="sancFloorArea" jdbcType="VARCHAR" />
+    <result column="sanc_floor_position" property="sancFloorPosition" jdbcType="VARCHAR" />
+    <result column="seismic_level" property="seismicLevel" jdbcType="VARCHAR" />
+    <result column="fire_over_area" property="fireOverArea" jdbcType="VARCHAR" />
+    <result column="video" property="video" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="BIGINT" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="BIGINT" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="prop_right_status" property="propRightStatus" jdbcType="CHAR" />
+    <result column="place_type" property="placeType" jdbcType="CHAR" />
+    <result column="fire_cred" property="fireCred" jdbcType="CHAR" />
+    <result column="busi_type" property="busiType" jdbcType="VARCHAR" />
+    <result column="busi_data_id" property="busiDataId" jdbcType="VARCHAR" />
+    <result column="precinct_id" property="precinctId" jdbcType="BIGINT" />
+    <result column="istemp" property="istemp" jdbcType="CHAR" />
+    <result column="cover_image_id" property="coverImageId" jdbcType="BIGINT" />
+    <result column="entrance_guard_status" property="entranceGuardStatus" jdbcType="CHAR" />
+    <result column="relation_type" property="relationType" jdbcType="CHAR" />
+    <result column="save_time" property="saveTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code, name, org_id, grid_id, building_type, status, building_nature, structure, 
+    floor_surfacenum, use_sdate, housenum_addr1, housenum_addr2, other_addr1, other_addr2, 
+    prop_right_addr, has_monitor, has_entrance_guard, use_edate, floor_undernum, height_type, 
+    height, park_surfacenum, park_undernum, cover_area, floor_space, use_area, main_use, 
+    units, complete_date, design_purpose, use_purpose, use_situation, geography, coor_id, 
+    fire_ctrlroom_situation, fire_ctrlroom_position, fire_lift_num, fire_lift_position, 
+    fire_proof_level, fire_fac_situation, sanc_floor_num, sanc_floor_area, sanc_floor_position, 
+    seismic_level, fire_over_area, video, create_by, create_date, update_by, update_date, 
+    del_flag, remarks, prop_right_status, place_type, fire_cred, busi_type, busi_data_id, 
+    precinct_id, istemp, cover_image_id, entrance_guard_status, relation_type, save_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from info_tb_building
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from info_tb_building
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ssmsite.modules.building.entity.InfoSubjectBuilding" >
+    insert into info_tb_building (id, code, name, 
+      org_id, grid_id, building_type, 
+      status, building_nature, structure, 
+      floor_surfacenum, use_sdate, housenum_addr1, 
+      housenum_addr2, other_addr1, other_addr2, 
+      prop_right_addr, has_monitor, has_entrance_guard, 
+      use_edate, floor_undernum, height_type, 
+      height, park_surfacenum, park_undernum, 
+      cover_area, floor_space, use_area, 
+      main_use, units, complete_date, 
+      design_purpose, use_purpose, use_situation, 
+      geography, coor_id, fire_ctrlroom_situation, 
+      fire_ctrlroom_position, fire_lift_num, fire_lift_position, 
+      fire_proof_level, fire_fac_situation, sanc_floor_num, 
+      sanc_floor_area, sanc_floor_position, seismic_level, 
+      fire_over_area, video, create_by, 
+      create_date, update_by, update_date, 
+      del_flag, remarks, prop_right_status, 
+      place_type, fire_cred, busi_type, 
+      busi_data_id, precinct_id, istemp, 
+      cover_image_id, entrance_guard_status, relation_type, 
+      save_time)
+    values (#{id,jdbcType=BIGINT}, #{code,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{orgId,jdbcType=BIGINT}, #{gridId,jdbcType=BIGINT}, #{buildingType,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{buildingNature,jdbcType=VARCHAR}, #{structure,jdbcType=VARCHAR}, 
+      #{floorSurfacenum,jdbcType=VARCHAR}, #{useSdate,jdbcType=DATE}, #{housenumAddr1,jdbcType=VARCHAR}, 
+      #{housenumAddr2,jdbcType=VARCHAR}, #{otherAddr1,jdbcType=VARCHAR}, #{otherAddr2,jdbcType=VARCHAR}, 
+      #{propRightAddr,jdbcType=VARCHAR}, #{hasMonitor,jdbcType=CHAR}, #{hasEntranceGuard,jdbcType=CHAR}, 
+      #{useEdate,jdbcType=DATE}, #{floorUndernum,jdbcType=VARCHAR}, #{heightType,jdbcType=VARCHAR}, 
+      #{height,jdbcType=VARCHAR}, #{parkSurfacenum,jdbcType=INTEGER}, #{parkUndernum,jdbcType=INTEGER}, 
+      #{coverArea,jdbcType=VARCHAR}, #{floorSpace,jdbcType=VARCHAR}, #{useArea,jdbcType=VARCHAR}, 
+      #{mainUse,jdbcType=VARCHAR}, #{units,jdbcType=VARCHAR}, #{completeDate,jdbcType=DATE}, 
+      #{designPurpose,jdbcType=VARCHAR}, #{usePurpose,jdbcType=VARCHAR}, #{useSituation,jdbcType=VARCHAR}, 
+      #{geography,jdbcType=VARCHAR}, #{coorId,jdbcType=BIGINT}, #{fireCtrlroomSituation,jdbcType=VARCHAR}, 
+      #{fireCtrlroomPosition,jdbcType=VARCHAR}, #{fireLiftNum,jdbcType=INTEGER}, #{fireLiftPosition,jdbcType=VARCHAR}, 
+      #{fireProofLevel,jdbcType=VARCHAR}, #{fireFacSituation,jdbcType=VARCHAR}, #{sancFloorNum,jdbcType=INTEGER}, 
+      #{sancFloorArea,jdbcType=VARCHAR}, #{sancFloorPosition,jdbcType=VARCHAR}, #{seismicLevel,jdbcType=VARCHAR}, 
+      #{fireOverArea,jdbcType=VARCHAR}, #{video,jdbcType=VARCHAR}, #{createBy,jdbcType=BIGINT}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=BIGINT}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{delFlag,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, #{propRightStatus,jdbcType=CHAR}, 
+      #{placeType,jdbcType=CHAR}, #{fireCred,jdbcType=CHAR}, #{busiType,jdbcType=VARCHAR}, 
+      #{busiDataId,jdbcType=VARCHAR}, #{precinctId,jdbcType=BIGINT}, #{istemp,jdbcType=CHAR}, 
+      #{coverImageId,jdbcType=BIGINT}, #{entranceGuardStatus,jdbcType=CHAR}, #{relationType,jdbcType=CHAR}, 
+      #{saveTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ssmsite.modules.building.entity.InfoSubjectBuilding" >
+    insert into info_tb_building
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="orgId != null" >
+        org_id,
+      </if>
+      <if test="gridId != null" >
+        grid_id,
+      </if>
+      <if test="buildingType != null" >
+        building_type,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="buildingNature != null" >
+        building_nature,
+      </if>
+      <if test="structure != null" >
+        structure,
+      </if>
+      <if test="floorSurfacenum != null" >
+        floor_surfacenum,
+      </if>
+      <if test="useSdate != null" >
+        use_sdate,
+      </if>
+      <if test="housenumAddr1 != null" >
+        housenum_addr1,
+      </if>
+      <if test="housenumAddr2 != null" >
+        housenum_addr2,
+      </if>
+      <if test="otherAddr1 != null" >
+        other_addr1,
+      </if>
+      <if test="otherAddr2 != null" >
+        other_addr2,
+      </if>
+      <if test="propRightAddr != null" >
+        prop_right_addr,
+      </if>
+      <if test="hasMonitor != null" >
+        has_monitor,
+      </if>
+      <if test="hasEntranceGuard != null" >
+        has_entrance_guard,
+      </if>
+      <if test="useEdate != null" >
+        use_edate,
+      </if>
+      <if test="floorUndernum != null" >
+        floor_undernum,
+      </if>
+      <if test="heightType != null" >
+        height_type,
+      </if>
+      <if test="height != null" >
+        height,
+      </if>
+      <if test="parkSurfacenum != null" >
+        park_surfacenum,
+      </if>
+      <if test="parkUndernum != null" >
+        park_undernum,
+      </if>
+      <if test="coverArea != null" >
+        cover_area,
+      </if>
+      <if test="floorSpace != null" >
+        floor_space,
+      </if>
+      <if test="useArea != null" >
+        use_area,
+      </if>
+      <if test="mainUse != null" >
+        main_use,
+      </if>
+      <if test="units != null" >
+        units,
+      </if>
+      <if test="completeDate != null" >
+        complete_date,
+      </if>
+      <if test="designPurpose != null" >
+        design_purpose,
+      </if>
+      <if test="usePurpose != null" >
+        use_purpose,
+      </if>
+      <if test="useSituation != null" >
+        use_situation,
+      </if>
+      <if test="geography != null" >
+        geography,
+      </if>
+      <if test="coorId != null" >
+        coor_id,
+      </if>
+      <if test="fireCtrlroomSituation != null" >
+        fire_ctrlroom_situation,
+      </if>
+      <if test="fireCtrlroomPosition != null" >
+        fire_ctrlroom_position,
+      </if>
+      <if test="fireLiftNum != null" >
+        fire_lift_num,
+      </if>
+      <if test="fireLiftPosition != null" >
+        fire_lift_position,
+      </if>
+      <if test="fireProofLevel != null" >
+        fire_proof_level,
+      </if>
+      <if test="fireFacSituation != null" >
+        fire_fac_situation,
+      </if>
+      <if test="sancFloorNum != null" >
+        sanc_floor_num,
+      </if>
+      <if test="sancFloorArea != null" >
+        sanc_floor_area,
+      </if>
+      <if test="sancFloorPosition != null" >
+        sanc_floor_position,
+      </if>
+      <if test="seismicLevel != null" >
+        seismic_level,
+      </if>
+      <if test="fireOverArea != null" >
+        fire_over_area,
+      </if>
+      <if test="video != null" >
+        video,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="propRightStatus != null" >
+        prop_right_status,
+      </if>
+      <if test="placeType != null" >
+        place_type,
+      </if>
+      <if test="fireCred != null" >
+        fire_cred,
+      </if>
+      <if test="busiType != null" >
+        busi_type,
+      </if>
+      <if test="busiDataId != null" >
+        busi_data_id,
+      </if>
+      <if test="precinctId != null" >
+        precinct_id,
+      </if>
+      <if test="istemp != null" >
+        istemp,
+      </if>
+      <if test="coverImageId != null" >
+        cover_image_id,
+      </if>
+      <if test="entranceGuardStatus != null" >
+        entrance_guard_status,
+      </if>
+      <if test="relationType != null" >
+        relation_type,
+      </if>
+      <if test="saveTime != null" >
+        save_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null" >
+        #{orgId,jdbcType=BIGINT},
+      </if>
+      <if test="gridId != null" >
+        #{gridId,jdbcType=BIGINT},
+      </if>
+      <if test="buildingType != null" >
+        #{buildingType,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingNature != null" >
+        #{buildingNature,jdbcType=VARCHAR},
+      </if>
+      <if test="structure != null" >
+        #{structure,jdbcType=VARCHAR},
+      </if>
+      <if test="floorSurfacenum != null" >
+        #{floorSurfacenum,jdbcType=VARCHAR},
+      </if>
+      <if test="useSdate != null" >
+        #{useSdate,jdbcType=DATE},
+      </if>
+      <if test="housenumAddr1 != null" >
+        #{housenumAddr1,jdbcType=VARCHAR},
+      </if>
+      <if test="housenumAddr2 != null" >
+        #{housenumAddr2,jdbcType=VARCHAR},
+      </if>
+      <if test="otherAddr1 != null" >
+        #{otherAddr1,jdbcType=VARCHAR},
+      </if>
+      <if test="otherAddr2 != null" >
+        #{otherAddr2,jdbcType=VARCHAR},
+      </if>
+      <if test="propRightAddr != null" >
+        #{propRightAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="hasMonitor != null" >
+        #{hasMonitor,jdbcType=CHAR},
+      </if>
+      <if test="hasEntranceGuard != null" >
+        #{hasEntranceGuard,jdbcType=CHAR},
+      </if>
+      <if test="useEdate != null" >
+        #{useEdate,jdbcType=DATE},
+      </if>
+      <if test="floorUndernum != null" >
+        #{floorUndernum,jdbcType=VARCHAR},
+      </if>
+      <if test="heightType != null" >
+        #{heightType,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null" >
+        #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="parkSurfacenum != null" >
+        #{parkSurfacenum,jdbcType=INTEGER},
+      </if>
+      <if test="parkUndernum != null" >
+        #{parkUndernum,jdbcType=INTEGER},
+      </if>
+      <if test="coverArea != null" >
+        #{coverArea,jdbcType=VARCHAR},
+      </if>
+      <if test="floorSpace != null" >
+        #{floorSpace,jdbcType=VARCHAR},
+      </if>
+      <if test="useArea != null" >
+        #{useArea,jdbcType=VARCHAR},
+      </if>
+      <if test="mainUse != null" >
+        #{mainUse,jdbcType=VARCHAR},
+      </if>
+      <if test="units != null" >
+        #{units,jdbcType=VARCHAR},
+      </if>
+      <if test="completeDate != null" >
+        #{completeDate,jdbcType=DATE},
+      </if>
+      <if test="designPurpose != null" >
+        #{designPurpose,jdbcType=VARCHAR},
+      </if>
+      <if test="usePurpose != null" >
+        #{usePurpose,jdbcType=VARCHAR},
+      </if>
+      <if test="useSituation != null" >
+        #{useSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="geography != null" >
+        #{geography,jdbcType=VARCHAR},
+      </if>
+      <if test="coorId != null" >
+        #{coorId,jdbcType=BIGINT},
+      </if>
+      <if test="fireCtrlroomSituation != null" >
+        #{fireCtrlroomSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="fireCtrlroomPosition != null" >
+        #{fireCtrlroomPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="fireLiftNum != null" >
+        #{fireLiftNum,jdbcType=INTEGER},
+      </if>
+      <if test="fireLiftPosition != null" >
+        #{fireLiftPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="fireProofLevel != null" >
+        #{fireProofLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="fireFacSituation != null" >
+        #{fireFacSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="sancFloorNum != null" >
+        #{sancFloorNum,jdbcType=INTEGER},
+      </if>
+      <if test="sancFloorArea != null" >
+        #{sancFloorArea,jdbcType=VARCHAR},
+      </if>
+      <if test="sancFloorPosition != null" >
+        #{sancFloorPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="seismicLevel != null" >
+        #{seismicLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="fireOverArea != null" >
+        #{fireOverArea,jdbcType=VARCHAR},
+      </if>
+      <if test="video != null" >
+        #{video,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="propRightStatus != null" >
+        #{propRightStatus,jdbcType=CHAR},
+      </if>
+      <if test="placeType != null" >
+        #{placeType,jdbcType=CHAR},
+      </if>
+      <if test="fireCred != null" >
+        #{fireCred,jdbcType=CHAR},
+      </if>
+      <if test="busiType != null" >
+        #{busiType,jdbcType=VARCHAR},
+      </if>
+      <if test="busiDataId != null" >
+        #{busiDataId,jdbcType=VARCHAR},
+      </if>
+      <if test="precinctId != null" >
+        #{precinctId,jdbcType=BIGINT},
+      </if>
+      <if test="istemp != null" >
+        #{istemp,jdbcType=CHAR},
+      </if>
+      <if test="coverImageId != null" >
+        #{coverImageId,jdbcType=BIGINT},
+      </if>
+      <if test="entranceGuardStatus != null" >
+        #{entranceGuardStatus,jdbcType=CHAR},
+      </if>
+      <if test="relationType != null" >
+        #{relationType,jdbcType=CHAR},
+      </if>
+      <if test="saveTime != null" >
+        #{saveTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ssmsite.modules.building.entity.InfoSubjectBuilding" >
+    update info_tb_building
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null" >
+        org_id = #{orgId,jdbcType=BIGINT},
+      </if>
+      <if test="gridId != null" >
+        grid_id = #{gridId,jdbcType=BIGINT},
+      </if>
+      <if test="buildingType != null" >
+        building_type = #{buildingType,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingNature != null" >
+        building_nature = #{buildingNature,jdbcType=VARCHAR},
+      </if>
+      <if test="structure != null" >
+        structure = #{structure,jdbcType=VARCHAR},
+      </if>
+      <if test="floorSurfacenum != null" >
+        floor_surfacenum = #{floorSurfacenum,jdbcType=VARCHAR},
+      </if>
+      <if test="useSdate != null" >
+        use_sdate = #{useSdate,jdbcType=DATE},
+      </if>
+      <if test="housenumAddr1 != null" >
+        housenum_addr1 = #{housenumAddr1,jdbcType=VARCHAR},
+      </if>
+      <if test="housenumAddr2 != null" >
+        housenum_addr2 = #{housenumAddr2,jdbcType=VARCHAR},
+      </if>
+      <if test="otherAddr1 != null" >
+        other_addr1 = #{otherAddr1,jdbcType=VARCHAR},
+      </if>
+      <if test="otherAddr2 != null" >
+        other_addr2 = #{otherAddr2,jdbcType=VARCHAR},
+      </if>
+      <if test="propRightAddr != null" >
+        prop_right_addr = #{propRightAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="hasMonitor != null" >
+        has_monitor = #{hasMonitor,jdbcType=CHAR},
+      </if>
+      <if test="hasEntranceGuard != null" >
+        has_entrance_guard = #{hasEntranceGuard,jdbcType=CHAR},
+      </if>
+      <if test="useEdate != null" >
+        use_edate = #{useEdate,jdbcType=DATE},
+      </if>
+      <if test="floorUndernum != null" >
+        floor_undernum = #{floorUndernum,jdbcType=VARCHAR},
+      </if>
+      <if test="heightType != null" >
+        height_type = #{heightType,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null" >
+        height = #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="parkSurfacenum != null" >
+        park_surfacenum = #{parkSurfacenum,jdbcType=INTEGER},
+      </if>
+      <if test="parkUndernum != null" >
+        park_undernum = #{parkUndernum,jdbcType=INTEGER},
+      </if>
+      <if test="coverArea != null" >
+        cover_area = #{coverArea,jdbcType=VARCHAR},
+      </if>
+      <if test="floorSpace != null" >
+        floor_space = #{floorSpace,jdbcType=VARCHAR},
+      </if>
+      <if test="useArea != null" >
+        use_area = #{useArea,jdbcType=VARCHAR},
+      </if>
+      <if test="mainUse != null" >
+        main_use = #{mainUse,jdbcType=VARCHAR},
+      </if>
+      <if test="units != null" >
+        units = #{units,jdbcType=VARCHAR},
+      </if>
+      <if test="completeDate != null" >
+        complete_date = #{completeDate,jdbcType=DATE},
+      </if>
+      <if test="designPurpose != null" >
+        design_purpose = #{designPurpose,jdbcType=VARCHAR},
+      </if>
+      <if test="usePurpose != null" >
+        use_purpose = #{usePurpose,jdbcType=VARCHAR},
+      </if>
+      <if test="useSituation != null" >
+        use_situation = #{useSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="geography != null" >
+        geography = #{geography,jdbcType=VARCHAR},
+      </if>
+      <if test="coorId != null" >
+        coor_id = #{coorId,jdbcType=BIGINT},
+      </if>
+      <if test="fireCtrlroomSituation != null" >
+        fire_ctrlroom_situation = #{fireCtrlroomSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="fireCtrlroomPosition != null" >
+        fire_ctrlroom_position = #{fireCtrlroomPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="fireLiftNum != null" >
+        fire_lift_num = #{fireLiftNum,jdbcType=INTEGER},
+      </if>
+      <if test="fireLiftPosition != null" >
+        fire_lift_position = #{fireLiftPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="fireProofLevel != null" >
+        fire_proof_level = #{fireProofLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="fireFacSituation != null" >
+        fire_fac_situation = #{fireFacSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="sancFloorNum != null" >
+        sanc_floor_num = #{sancFloorNum,jdbcType=INTEGER},
+      </if>
+      <if test="sancFloorArea != null" >
+        sanc_floor_area = #{sancFloorArea,jdbcType=VARCHAR},
+      </if>
+      <if test="sancFloorPosition != null" >
+        sanc_floor_position = #{sancFloorPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="seismicLevel != null" >
+        seismic_level = #{seismicLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="fireOverArea != null" >
+        fire_over_area = #{fireOverArea,jdbcType=VARCHAR},
+      </if>
+      <if test="video != null" >
+        video = #{video,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="propRightStatus != null" >
+        prop_right_status = #{propRightStatus,jdbcType=CHAR},
+      </if>
+      <if test="placeType != null" >
+        place_type = #{placeType,jdbcType=CHAR},
+      </if>
+      <if test="fireCred != null" >
+        fire_cred = #{fireCred,jdbcType=CHAR},
+      </if>
+      <if test="busiType != null" >
+        busi_type = #{busiType,jdbcType=VARCHAR},
+      </if>
+      <if test="busiDataId != null" >
+        busi_data_id = #{busiDataId,jdbcType=VARCHAR},
+      </if>
+      <if test="precinctId != null" >
+        precinct_id = #{precinctId,jdbcType=BIGINT},
+      </if>
+      <if test="istemp != null" >
+        istemp = #{istemp,jdbcType=CHAR},
+      </if>
+      <if test="coverImageId != null" >
+        cover_image_id = #{coverImageId,jdbcType=BIGINT},
+      </if>
+      <if test="entranceGuardStatus != null" >
+        entrance_guard_status = #{entranceGuardStatus,jdbcType=CHAR},
+      </if>
+      <if test="relationType != null" >
+        relation_type = #{relationType,jdbcType=CHAR},
+      </if>
+      <if test="saveTime != null" >
+        save_time = #{saveTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ssmsite.modules.building.entity.InfoSubjectBuilding" >
+    update info_tb_building
+    set code = #{code,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      org_id = #{orgId,jdbcType=BIGINT},
+      grid_id = #{gridId,jdbcType=BIGINT},
+      building_type = #{buildingType,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      building_nature = #{buildingNature,jdbcType=VARCHAR},
+      structure = #{structure,jdbcType=VARCHAR},
+      floor_surfacenum = #{floorSurfacenum,jdbcType=VARCHAR},
+      use_sdate = #{useSdate,jdbcType=DATE},
+      housenum_addr1 = #{housenumAddr1,jdbcType=VARCHAR},
+      housenum_addr2 = #{housenumAddr2,jdbcType=VARCHAR},
+      other_addr1 = #{otherAddr1,jdbcType=VARCHAR},
+      other_addr2 = #{otherAddr2,jdbcType=VARCHAR},
+      prop_right_addr = #{propRightAddr,jdbcType=VARCHAR},
+      has_monitor = #{hasMonitor,jdbcType=CHAR},
+      has_entrance_guard = #{hasEntranceGuard,jdbcType=CHAR},
+      use_edate = #{useEdate,jdbcType=DATE},
+      floor_undernum = #{floorUndernum,jdbcType=VARCHAR},
+      height_type = #{heightType,jdbcType=VARCHAR},
+      height = #{height,jdbcType=VARCHAR},
+      park_surfacenum = #{parkSurfacenum,jdbcType=INTEGER},
+      park_undernum = #{parkUndernum,jdbcType=INTEGER},
+      cover_area = #{coverArea,jdbcType=VARCHAR},
+      floor_space = #{floorSpace,jdbcType=VARCHAR},
+      use_area = #{useArea,jdbcType=VARCHAR},
+      main_use = #{mainUse,jdbcType=VARCHAR},
+      units = #{units,jdbcType=VARCHAR},
+      complete_date = #{completeDate,jdbcType=DATE},
+      design_purpose = #{designPurpose,jdbcType=VARCHAR},
+      use_purpose = #{usePurpose,jdbcType=VARCHAR},
+      use_situation = #{useSituation,jdbcType=VARCHAR},
+      geography = #{geography,jdbcType=VARCHAR},
+      coor_id = #{coorId,jdbcType=BIGINT},
+      fire_ctrlroom_situation = #{fireCtrlroomSituation,jdbcType=VARCHAR},
+      fire_ctrlroom_position = #{fireCtrlroomPosition,jdbcType=VARCHAR},
+      fire_lift_num = #{fireLiftNum,jdbcType=INTEGER},
+      fire_lift_position = #{fireLiftPosition,jdbcType=VARCHAR},
+      fire_proof_level = #{fireProofLevel,jdbcType=VARCHAR},
+      fire_fac_situation = #{fireFacSituation,jdbcType=VARCHAR},
+      sanc_floor_num = #{sancFloorNum,jdbcType=INTEGER},
+      sanc_floor_area = #{sancFloorArea,jdbcType=VARCHAR},
+      sanc_floor_position = #{sancFloorPosition,jdbcType=VARCHAR},
+      seismic_level = #{seismicLevel,jdbcType=VARCHAR},
+      fire_over_area = #{fireOverArea,jdbcType=VARCHAR},
+      video = #{video,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=BIGINT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=BIGINT},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      prop_right_status = #{propRightStatus,jdbcType=CHAR},
+      place_type = #{placeType,jdbcType=CHAR},
+      fire_cred = #{fireCred,jdbcType=CHAR},
+      busi_type = #{busiType,jdbcType=VARCHAR},
+      busi_data_id = #{busiDataId,jdbcType=VARCHAR},
+      precinct_id = #{precinctId,jdbcType=BIGINT},
+      istemp = #{istemp,jdbcType=CHAR},
+      cover_image_id = #{coverImageId,jdbcType=BIGINT},
+      entrance_guard_status = #{entranceGuardStatus,jdbcType=CHAR},
+      relation_type = #{relationType,jdbcType=CHAR},
+      save_time = #{saveTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

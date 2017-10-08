@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssmsite.modules.building.dao.InfoSubjectRenthouseMapper" >
+  <resultMap id="BaseResultMap" type="com.ssmsite.modules.building.entity.InfoSubjectRenthouse" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="code" property="code" jdbcType="BIGINT" />
+    <result column="jz_num" property="jzNum" jdbcType="VARCHAR" />
+    <result column="house_num" property="houseNum" jdbcType="VARCHAR" />
+    <result column="rent_code" property="rentCode" jdbcType="VARCHAR" />
+    <result column="room_cnt" property="roomCnt" jdbcType="INTEGER" />
+    <result column="is_safe_civilized" property="isSafeCivilized" jdbcType="INTEGER" />
+    <result column="self_area" property="selfArea" jdbcType="VARCHAR" />
+    <result column="addr" property="addr" jdbcType="VARCHAR" />
+    <result column="has_monitor" property="hasMonitor" jdbcType="INTEGER" />
+    <result column="has_insurance" property="hasInsurance" jdbcType="INTEGER" />
+    <result column="create_by" property="createBy" jdbcType="BIGINT" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="BIGINT" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="deptorg_id" property="deptorgId" jdbcType="VARCHAR" />
+    <result column="new_class_code" property="newClassCode" jdbcType="VARCHAR" />
+    <result column="new_class_date" property="newClassDate" jdbcType="DATE" />
+    <result column="pre_class_code" property="preClassCode" jdbcType="VARCHAR" />
+    <result column="pre_check_date" property="preCheckDate" jdbcType="DATE" />
+    <result column="next_check_date" property="nextCheckDate" jdbcType="DATE" />
+    <result column="water_usage" property="waterUsage" jdbcType="INTEGER" />
+    <result column="live_count" property="liveCount" jdbcType="INTEGER" />
+    <result column="cover_image_id" property="coverImageId" jdbcType="BIGINT" />
+    <result column="subject_type" property="subjectType" jdbcType="CHAR" />
+    <result column="code2d" property="code2d" jdbcType="VARCHAR" />
+    <result column="level_num" property="levelNum" jdbcType="INTEGER" />
+    <result column="rent_area" property="rentArea" jdbcType="INTEGER" />
+    <result column="save_time" property="saveTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code, jz_num, house_num, rent_code, room_cnt, is_safe_civilized, self_area, addr, 
+    has_monitor, has_insurance, create_by, create_date, update_by, update_date, del_flag, 
+    remarks, deptorg_id, new_class_code, new_class_date, pre_class_code, pre_check_date, 
+    next_check_date, water_usage, live_count, cover_image_id, subject_type, code2d, level_num, 
+    rent_area, save_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from info_tb_subject_renthouse
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from info_tb_subject_renthouse
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ssmsite.modules.building.entity.InfoSubjectRenthouse" >
+    insert into info_tb_subject_renthouse (id, code, jz_num, 
+      house_num, rent_code, room_cnt, 
+      is_safe_civilized, self_area, addr, 
+      has_monitor, has_insurance, create_by, 
+      create_date, update_by, update_date, 
+      del_flag, remarks, deptorg_id, 
+      new_class_code, new_class_date, pre_class_code, 
+      pre_check_date, next_check_date, water_usage, 
+      live_count, cover_image_id, subject_type, 
+      code2d, level_num, rent_area, 
+      save_time)
+    values (#{id,jdbcType=BIGINT}, #{code,jdbcType=BIGINT}, #{jzNum,jdbcType=VARCHAR}, 
+      #{houseNum,jdbcType=VARCHAR}, #{rentCode,jdbcType=VARCHAR}, #{roomCnt,jdbcType=INTEGER}, 
+      #{isSafeCivilized,jdbcType=INTEGER}, #{selfArea,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, 
+      #{hasMonitor,jdbcType=INTEGER}, #{hasInsurance,jdbcType=INTEGER}, #{createBy,jdbcType=BIGINT}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=BIGINT}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{delFlag,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, #{deptorgId,jdbcType=VARCHAR}, 
+      #{newClassCode,jdbcType=VARCHAR}, #{newClassDate,jdbcType=DATE}, #{preClassCode,jdbcType=VARCHAR}, 
+      #{preCheckDate,jdbcType=DATE}, #{nextCheckDate,jdbcType=DATE}, #{waterUsage,jdbcType=INTEGER}, 
+      #{liveCount,jdbcType=INTEGER}, #{coverImageId,jdbcType=BIGINT}, #{subjectType,jdbcType=CHAR}, 
+      #{code2d,jdbcType=VARCHAR}, #{levelNum,jdbcType=INTEGER}, #{rentArea,jdbcType=INTEGER}, 
+      #{saveTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ssmsite.modules.building.entity.InfoSubjectRenthouse" >
+    insert into info_tb_subject_renthouse
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="jzNum != null" >
+        jz_num,
+      </if>
+      <if test="houseNum != null" >
+        house_num,
+      </if>
+      <if test="rentCode != null" >
+        rent_code,
+      </if>
+      <if test="roomCnt != null" >
+        room_cnt,
+      </if>
+      <if test="isSafeCivilized != null" >
+        is_safe_civilized,
+      </if>
+      <if test="selfArea != null" >
+        self_area,
+      </if>
+      <if test="addr != null" >
+        addr,
+      </if>
+      <if test="hasMonitor != null" >
+        has_monitor,
+      </if>
+      <if test="hasInsurance != null" >
+        has_insurance,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="deptorgId != null" >
+        deptorg_id,
+      </if>
+      <if test="newClassCode != null" >
+        new_class_code,
+      </if>
+      <if test="newClassDate != null" >
+        new_class_date,
+      </if>
+      <if test="preClassCode != null" >
+        pre_class_code,
+      </if>
+      <if test="preCheckDate != null" >
+        pre_check_date,
+      </if>
+      <if test="nextCheckDate != null" >
+        next_check_date,
+      </if>
+      <if test="waterUsage != null" >
+        water_usage,
+      </if>
+      <if test="liveCount != null" >
+        live_count,
+      </if>
+      <if test="coverImageId != null" >
+        cover_image_id,
+      </if>
+      <if test="subjectType != null" >
+        subject_type,
+      </if>
+      <if test="code2d != null" >
+        code2d,
+      </if>
+      <if test="levelNum != null" >
+        level_num,
+      </if>
+      <if test="rentArea != null" >
+        rent_area,
+      </if>
+      <if test="saveTime != null" >
+        save_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=BIGINT},
+      </if>
+      <if test="jzNum != null" >
+        #{jzNum,jdbcType=VARCHAR},
+      </if>
+      <if test="houseNum != null" >
+        #{houseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="rentCode != null" >
+        #{rentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="roomCnt != null" >
+        #{roomCnt,jdbcType=INTEGER},
+      </if>
+      <if test="isSafeCivilized != null" >
+        #{isSafeCivilized,jdbcType=INTEGER},
+      </if>
+      <if test="selfArea != null" >
+        #{selfArea,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null" >
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="hasMonitor != null" >
+        #{hasMonitor,jdbcType=INTEGER},
+      </if>
+      <if test="hasInsurance != null" >
+        #{hasInsurance,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="deptorgId != null" >
+        #{deptorgId,jdbcType=VARCHAR},
+      </if>
+      <if test="newClassCode != null" >
+        #{newClassCode,jdbcType=VARCHAR},
+      </if>
+      <if test="newClassDate != null" >
+        #{newClassDate,jdbcType=DATE},
+      </if>
+      <if test="preClassCode != null" >
+        #{preClassCode,jdbcType=VARCHAR},
+      </if>
+      <if test="preCheckDate != null" >
+        #{preCheckDate,jdbcType=DATE},
+      </if>
+      <if test="nextCheckDate != null" >
+        #{nextCheckDate,jdbcType=DATE},
+      </if>
+      <if test="waterUsage != null" >
+        #{waterUsage,jdbcType=INTEGER},
+      </if>
+      <if test="liveCount != null" >
+        #{liveCount,jdbcType=INTEGER},
+      </if>
+      <if test="coverImageId != null" >
+        #{coverImageId,jdbcType=BIGINT},
+      </if>
+      <if test="subjectType != null" >
+        #{subjectType,jdbcType=CHAR},
+      </if>
+      <if test="code2d != null" >
+        #{code2d,jdbcType=VARCHAR},
+      </if>
+      <if test="levelNum != null" >
+        #{levelNum,jdbcType=INTEGER},
+      </if>
+      <if test="rentArea != null" >
+        #{rentArea,jdbcType=INTEGER},
+      </if>
+      <if test="saveTime != null" >
+        #{saveTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ssmsite.modules.building.entity.InfoSubjectRenthouse" >
+    update info_tb_subject_renthouse
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=BIGINT},
+      </if>
+      <if test="jzNum != null" >
+        jz_num = #{jzNum,jdbcType=VARCHAR},
+      </if>
+      <if test="houseNum != null" >
+        house_num = #{houseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="rentCode != null" >
+        rent_code = #{rentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="roomCnt != null" >
+        room_cnt = #{roomCnt,jdbcType=INTEGER},
+      </if>
+      <if test="isSafeCivilized != null" >
+        is_safe_civilized = #{isSafeCivilized,jdbcType=INTEGER},
+      </if>
+      <if test="selfArea != null" >
+        self_area = #{selfArea,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null" >
+        addr = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="hasMonitor != null" >
+        has_monitor = #{hasMonitor,jdbcType=INTEGER},
+      </if>
+      <if test="hasInsurance != null" >
+        has_insurance = #{hasInsurance,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="deptorgId != null" >
+        deptorg_id = #{deptorgId,jdbcType=VARCHAR},
+      </if>
+      <if test="newClassCode != null" >
+        new_class_code = #{newClassCode,jdbcType=VARCHAR},
+      </if>
+      <if test="newClassDate != null" >
+        new_class_date = #{newClassDate,jdbcType=DATE},
+      </if>
+      <if test="preClassCode != null" >
+        pre_class_code = #{preClassCode,jdbcType=VARCHAR},
+      </if>
+      <if test="preCheckDate != null" >
+        pre_check_date = #{preCheckDate,jdbcType=DATE},
+      </if>
+      <if test="nextCheckDate != null" >
+        next_check_date = #{nextCheckDate,jdbcType=DATE},
+      </if>
+      <if test="waterUsage != null" >
+        water_usage = #{waterUsage,jdbcType=INTEGER},
+      </if>
+      <if test="liveCount != null" >
+        live_count = #{liveCount,jdbcType=INTEGER},
+      </if>
+      <if test="coverImageId != null" >
+        cover_image_id = #{coverImageId,jdbcType=BIGINT},
+      </if>
+      <if test="subjectType != null" >
+        subject_type = #{subjectType,jdbcType=CHAR},
+      </if>
+      <if test="code2d != null" >
+        code2d = #{code2d,jdbcType=VARCHAR},
+      </if>
+      <if test="levelNum != null" >
+        level_num = #{levelNum,jdbcType=INTEGER},
+      </if>
+      <if test="rentArea != null" >
+        rent_area = #{rentArea,jdbcType=INTEGER},
+      </if>
+      <if test="saveTime != null" >
+        save_time = #{saveTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ssmsite.modules.building.entity.InfoSubjectRenthouse" >
+    update info_tb_subject_renthouse
+    set code = #{code,jdbcType=BIGINT},
+      jz_num = #{jzNum,jdbcType=VARCHAR},
+      house_num = #{houseNum,jdbcType=VARCHAR},
+      rent_code = #{rentCode,jdbcType=VARCHAR},
+      room_cnt = #{roomCnt,jdbcType=INTEGER},
+      is_safe_civilized = #{isSafeCivilized,jdbcType=INTEGER},
+      self_area = #{selfArea,jdbcType=VARCHAR},
+      addr = #{addr,jdbcType=VARCHAR},
+      has_monitor = #{hasMonitor,jdbcType=INTEGER},
+      has_insurance = #{hasInsurance,jdbcType=INTEGER},
+      create_by = #{createBy,jdbcType=BIGINT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=BIGINT},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      deptorg_id = #{deptorgId,jdbcType=VARCHAR},
+      new_class_code = #{newClassCode,jdbcType=VARCHAR},
+      new_class_date = #{newClassDate,jdbcType=DATE},
+      pre_class_code = #{preClassCode,jdbcType=VARCHAR},
+      pre_check_date = #{preCheckDate,jdbcType=DATE},
+      next_check_date = #{nextCheckDate,jdbcType=DATE},
+      water_usage = #{waterUsage,jdbcType=INTEGER},
+      live_count = #{liveCount,jdbcType=INTEGER},
+      cover_image_id = #{coverImageId,jdbcType=BIGINT},
+      subject_type = #{subjectType,jdbcType=CHAR},
+      code2d = #{code2d,jdbcType=VARCHAR},
+      level_num = #{levelNum,jdbcType=INTEGER},
+      rent_area = #{rentArea,jdbcType=INTEGER},
+      save_time = #{saveTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssmsite.modules.building.dao.InfoSubjectOperateplaceMapper" >
+  <resultMap id="BaseResultMap" type="com.ssmsite.modules.building.entity.InfoSubjectOperateplace" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="code" property="code" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="place_type" property="placeType" jdbcType="VARCHAR" />
+    <result column="house_num" property="houseNum" jdbcType="VARCHAR" />
+    <result column="business_way" property="businessWay" jdbcType="VARCHAR" />
+    <result column="business_scope" property="businessScope" jdbcType="VARCHAR" />
+    <result column="industry" property="industry" jdbcType="VARCHAR" />
+    <result column="cred_num" property="credNum" jdbcType="VARCHAR" />
+    <result column="organ_code" property="organCode" jdbcType="VARCHAR" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="cred_name" property="credName" jdbcType="VARCHAR" />
+    <result column="cred_url" property="credUrl" jdbcType="VARCHAR" />
+    <result column="trust_code" property="trustCode" jdbcType="VARCHAR" />
+    <result column="num_of_people" property="numOfPeople" jdbcType="INTEGER" />
+    <result column="contact_tel" property="contactTel" jdbcType="VARCHAR" />
+    <result column="fax" property="fax" jdbcType="VARCHAR" />
+    <result column="legal_addr" property="legalAddr" jdbcType="VARCHAR" />
+    <result column="setup_date" property="setupDate" jdbcType="DATE" />
+    <result column="year_check" property="yearCheck" jdbcType="CHAR" />
+    <result column="create_by" property="createBy" jdbcType="BIGINT" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="BIGINT" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="product_brand" property="productBrand" jdbcType="VARCHAR" />
+    <result column="busi_type" property="busiType" jdbcType="VARCHAR" />
+    <result column="busi_data_id" property="busiDataId" jdbcType="VARCHAR" />
+    <result column="tmp_grid_id" property="tmpGridId" jdbcType="BIGINT" />
+    <result column="new_class_code" property="newClassCode" jdbcType="VARCHAR" />
+    <result column="new_class_date" property="newClassDate" jdbcType="DATE" />
+    <result column="pre_class_code" property="preClassCode" jdbcType="VARCHAR" />
+    <result column="pre_check_date" property="preCheckDate" jdbcType="DATE" />
+    <result column="next_check_date" property="nextCheckDate" jdbcType="DATE" />
+    <result column="cover_image_id" property="coverImageId" jdbcType="BIGINT" />
+    <result column="subject_type" property="subjectType" jdbcType="CHAR" />
+    <result column="code2d" property="code2d" jdbcType="VARCHAR" />
+    <result column="business_type" property="businessType" jdbcType="VARCHAR" />
+    <result column="business_term" property="businessTerm" jdbcType="DATE" />
+    <result column="grade" property="grade" jdbcType="CHAR" />
+    <result column="last_annual_report" property="lastAnnualReport" jdbcType="VARCHAR" />
+    <result column="save_time" property="saveTime" jdbcType="TIMESTAMP" />
+    <result column="keyword_ids" property="keywordIds" jdbcType="VARCHAR" />
+    <result column="keyword_names" property="keywordNames" jdbcType="VARCHAR" />
+    <result column="keyword_depts" property="keywordDepts" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code, name, place_type, house_num, business_way, business_scope, industry, cred_num, 
+    organ_code, area, cred_name, cred_url, trust_code, num_of_people, contact_tel, fax, 
+    legal_addr, setup_date, year_check, create_by, create_date, update_by, update_date, 
+    del_flag, remarks, product_brand, busi_type, busi_data_id, tmp_grid_id, new_class_code, 
+    new_class_date, pre_class_code, pre_check_date, next_check_date, cover_image_id, 
+    subject_type, code2d, business_type, business_term, grade, last_annual_report, save_time, 
+    keyword_ids, keyword_names, keyword_depts
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from info_tb_subject_operateplace
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from info_tb_subject_operateplace
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ssmsite.modules.building.entity.InfoSubjectOperateplace" >
+    insert into info_tb_subject_operateplace (id, code, name, 
+      place_type, house_num, business_way, 
+      business_scope, industry, cred_num, 
+      organ_code, area, cred_name, 
+      cred_url, trust_code, num_of_people, 
+      contact_tel, fax, legal_addr, 
+      setup_date, year_check, create_by, 
+      create_date, update_by, update_date, 
+      del_flag, remarks, product_brand, 
+      busi_type, busi_data_id, tmp_grid_id, 
+      new_class_code, new_class_date, pre_class_code, 
+      pre_check_date, next_check_date, cover_image_id, 
+      subject_type, code2d, business_type, 
+      business_term, grade, last_annual_report, 
+      save_time, keyword_ids, keyword_names, 
+      keyword_depts)
+    values (#{id,jdbcType=BIGINT}, #{code,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{placeType,jdbcType=VARCHAR}, #{houseNum,jdbcType=VARCHAR}, #{businessWay,jdbcType=VARCHAR}, 
+      #{businessScope,jdbcType=VARCHAR}, #{industry,jdbcType=VARCHAR}, #{credNum,jdbcType=VARCHAR}, 
+      #{organCode,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{credName,jdbcType=VARCHAR}, 
+      #{credUrl,jdbcType=VARCHAR}, #{trustCode,jdbcType=VARCHAR}, #{numOfPeople,jdbcType=INTEGER}, 
+      #{contactTel,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, #{legalAddr,jdbcType=VARCHAR}, 
+      #{setupDate,jdbcType=DATE}, #{yearCheck,jdbcType=CHAR}, #{createBy,jdbcType=BIGINT}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=BIGINT}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{delFlag,jdbcType=CHAR}, #{remarks,jdbcType=VARCHAR}, #{productBrand,jdbcType=VARCHAR}, 
+      #{busiType,jdbcType=VARCHAR}, #{busiDataId,jdbcType=VARCHAR}, #{tmpGridId,jdbcType=BIGINT}, 
+      #{newClassCode,jdbcType=VARCHAR}, #{newClassDate,jdbcType=DATE}, #{preClassCode,jdbcType=VARCHAR}, 
+      #{preCheckDate,jdbcType=DATE}, #{nextCheckDate,jdbcType=DATE}, #{coverImageId,jdbcType=BIGINT}, 
+      #{subjectType,jdbcType=CHAR}, #{code2d,jdbcType=VARCHAR}, #{businessType,jdbcType=VARCHAR}, 
+      #{businessTerm,jdbcType=DATE}, #{grade,jdbcType=CHAR}, #{lastAnnualReport,jdbcType=VARCHAR}, 
+      #{saveTime,jdbcType=TIMESTAMP}, #{keywordIds,jdbcType=VARCHAR}, #{keywordNames,jdbcType=VARCHAR}, 
+      #{keywordDepts,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ssmsite.modules.building.entity.InfoSubjectOperateplace" >
+    insert into info_tb_subject_operateplace
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="placeType != null" >
+        place_type,
+      </if>
+      <if test="houseNum != null" >
+        house_num,
+      </if>
+      <if test="businessWay != null" >
+        business_way,
+      </if>
+      <if test="businessScope != null" >
+        business_scope,
+      </if>
+      <if test="industry != null" >
+        industry,
+      </if>
+      <if test="credNum != null" >
+        cred_num,
+      </if>
+      <if test="organCode != null" >
+        organ_code,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="credName != null" >
+        cred_name,
+      </if>
+      <if test="credUrl != null" >
+        cred_url,
+      </if>
+      <if test="trustCode != null" >
+        trust_code,
+      </if>
+      <if test="numOfPeople != null" >
+        num_of_people,
+      </if>
+      <if test="contactTel != null" >
+        contact_tel,
+      </if>
+      <if test="fax != null" >
+        fax,
+      </if>
+      <if test="legalAddr != null" >
+        legal_addr,
+      </if>
+      <if test="setupDate != null" >
+        setup_date,
+      </if>
+      <if test="yearCheck != null" >
+        year_check,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="productBrand != null" >
+        product_brand,
+      </if>
+      <if test="busiType != null" >
+        busi_type,
+      </if>
+      <if test="busiDataId != null" >
+        busi_data_id,
+      </if>
+      <if test="tmpGridId != null" >
+        tmp_grid_id,
+      </if>
+      <if test="newClassCode != null" >
+        new_class_code,
+      </if>
+      <if test="newClassDate != null" >
+        new_class_date,
+      </if>
+      <if test="preClassCode != null" >
+        pre_class_code,
+      </if>
+      <if test="preCheckDate != null" >
+        pre_check_date,
+      </if>
+      <if test="nextCheckDate != null" >
+        next_check_date,
+      </if>
+      <if test="coverImageId != null" >
+        cover_image_id,
+      </if>
+      <if test="subjectType != null" >
+        subject_type,
+      </if>
+      <if test="code2d != null" >
+        code2d,
+      </if>
+      <if test="businessType != null" >
+        business_type,
+      </if>
+      <if test="businessTerm != null" >
+        business_term,
+      </if>
+      <if test="grade != null" >
+        grade,
+      </if>
+      <if test="lastAnnualReport != null" >
+        last_annual_report,
+      </if>
+      <if test="saveTime != null" >
+        save_time,
+      </if>
+      <if test="keywordIds != null" >
+        keyword_ids,
+      </if>
+      <if test="keywordNames != null" >
+        keyword_names,
+      </if>
+      <if test="keywordDepts != null" >
+        keyword_depts,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="placeType != null" >
+        #{placeType,jdbcType=VARCHAR},
+      </if>
+      <if test="houseNum != null" >
+        #{houseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="businessWay != null" >
+        #{businessWay,jdbcType=VARCHAR},
+      </if>
+      <if test="businessScope != null" >
+        #{businessScope,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null" >
+        #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="credNum != null" >
+        #{credNum,jdbcType=VARCHAR},
+      </if>
+      <if test="organCode != null" >
+        #{organCode,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="credName != null" >
+        #{credName,jdbcType=VARCHAR},
+      </if>
+      <if test="credUrl != null" >
+        #{credUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="trustCode != null" >
+        #{trustCode,jdbcType=VARCHAR},
+      </if>
+      <if test="numOfPeople != null" >
+        #{numOfPeople,jdbcType=INTEGER},
+      </if>
+      <if test="contactTel != null" >
+        #{contactTel,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="legalAddr != null" >
+        #{legalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="setupDate != null" >
+        #{setupDate,jdbcType=DATE},
+      </if>
+      <if test="yearCheck != null" >
+        #{yearCheck,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productBrand != null" >
+        #{productBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="busiType != null" >
+        #{busiType,jdbcType=VARCHAR},
+      </if>
+      <if test="busiDataId != null" >
+        #{busiDataId,jdbcType=VARCHAR},
+      </if>
+      <if test="tmpGridId != null" >
+        #{tmpGridId,jdbcType=BIGINT},
+      </if>
+      <if test="newClassCode != null" >
+        #{newClassCode,jdbcType=VARCHAR},
+      </if>
+      <if test="newClassDate != null" >
+        #{newClassDate,jdbcType=DATE},
+      </if>
+      <if test="preClassCode != null" >
+        #{preClassCode,jdbcType=VARCHAR},
+      </if>
+      <if test="preCheckDate != null" >
+        #{preCheckDate,jdbcType=DATE},
+      </if>
+      <if test="nextCheckDate != null" >
+        #{nextCheckDate,jdbcType=DATE},
+      </if>
+      <if test="coverImageId != null" >
+        #{coverImageId,jdbcType=BIGINT},
+      </if>
+      <if test="subjectType != null" >
+        #{subjectType,jdbcType=CHAR},
+      </if>
+      <if test="code2d != null" >
+        #{code2d,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null" >
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessTerm != null" >
+        #{businessTerm,jdbcType=DATE},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=CHAR},
+      </if>
+      <if test="lastAnnualReport != null" >
+        #{lastAnnualReport,jdbcType=VARCHAR},
+      </if>
+      <if test="saveTime != null" >
+        #{saveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="keywordIds != null" >
+        #{keywordIds,jdbcType=VARCHAR},
+      </if>
+      <if test="keywordNames != null" >
+        #{keywordNames,jdbcType=VARCHAR},
+      </if>
+      <if test="keywordDepts != null" >
+        #{keywordDepts,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ssmsite.modules.building.entity.InfoSubjectOperateplace" >
+    update info_tb_subject_operateplace
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="placeType != null" >
+        place_type = #{placeType,jdbcType=VARCHAR},
+      </if>
+      <if test="houseNum != null" >
+        house_num = #{houseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="businessWay != null" >
+        business_way = #{businessWay,jdbcType=VARCHAR},
+      </if>
+      <if test="businessScope != null" >
+        business_scope = #{businessScope,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null" >
+        industry = #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="credNum != null" >
+        cred_num = #{credNum,jdbcType=VARCHAR},
+      </if>
+      <if test="organCode != null" >
+        organ_code = #{organCode,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="credName != null" >
+        cred_name = #{credName,jdbcType=VARCHAR},
+      </if>
+      <if test="credUrl != null" >
+        cred_url = #{credUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="trustCode != null" >
+        trust_code = #{trustCode,jdbcType=VARCHAR},
+      </if>
+      <if test="numOfPeople != null" >
+        num_of_people = #{numOfPeople,jdbcType=INTEGER},
+      </if>
+      <if test="contactTel != null" >
+        contact_tel = #{contactTel,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        fax = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="legalAddr != null" >
+        legal_addr = #{legalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="setupDate != null" >
+        setup_date = #{setupDate,jdbcType=DATE},
+      </if>
+      <if test="yearCheck != null" >
+        year_check = #{yearCheck,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="productBrand != null" >
+        product_brand = #{productBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="busiType != null" >
+        busi_type = #{busiType,jdbcType=VARCHAR},
+      </if>
+      <if test="busiDataId != null" >
+        busi_data_id = #{busiDataId,jdbcType=VARCHAR},
+      </if>
+      <if test="tmpGridId != null" >
+        tmp_grid_id = #{tmpGridId,jdbcType=BIGINT},
+      </if>
+      <if test="newClassCode != null" >
+        new_class_code = #{newClassCode,jdbcType=VARCHAR},
+      </if>
+      <if test="newClassDate != null" >
+        new_class_date = #{newClassDate,jdbcType=DATE},
+      </if>
+      <if test="preClassCode != null" >
+        pre_class_code = #{preClassCode,jdbcType=VARCHAR},
+      </if>
+      <if test="preCheckDate != null" >
+        pre_check_date = #{preCheckDate,jdbcType=DATE},
+      </if>
+      <if test="nextCheckDate != null" >
+        next_check_date = #{nextCheckDate,jdbcType=DATE},
+      </if>
+      <if test="coverImageId != null" >
+        cover_image_id = #{coverImageId,jdbcType=BIGINT},
+      </if>
+      <if test="subjectType != null" >
+        subject_type = #{subjectType,jdbcType=CHAR},
+      </if>
+      <if test="code2d != null" >
+        code2d = #{code2d,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null" >
+        business_type = #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessTerm != null" >
+        business_term = #{businessTerm,jdbcType=DATE},
+      </if>
+      <if test="grade != null" >
+        grade = #{grade,jdbcType=CHAR},
+      </if>
+      <if test="lastAnnualReport != null" >
+        last_annual_report = #{lastAnnualReport,jdbcType=VARCHAR},
+      </if>
+      <if test="saveTime != null" >
+        save_time = #{saveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="keywordIds != null" >
+        keyword_ids = #{keywordIds,jdbcType=VARCHAR},
+      </if>
+      <if test="keywordNames != null" >
+        keyword_names = #{keywordNames,jdbcType=VARCHAR},
+      </if>
+      <if test="keywordDepts != null" >
+        keyword_depts = #{keywordDepts,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ssmsite.modules.building.entity.InfoSubjectOperateplace" >
+    update info_tb_subject_operateplace
+    set code = #{code,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      place_type = #{placeType,jdbcType=VARCHAR},
+      house_num = #{houseNum,jdbcType=VARCHAR},
+      business_way = #{businessWay,jdbcType=VARCHAR},
+      business_scope = #{businessScope,jdbcType=VARCHAR},
+      industry = #{industry,jdbcType=VARCHAR},
+      cred_num = #{credNum,jdbcType=VARCHAR},
+      organ_code = #{organCode,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      cred_name = #{credName,jdbcType=VARCHAR},
+      cred_url = #{credUrl,jdbcType=VARCHAR},
+      trust_code = #{trustCode,jdbcType=VARCHAR},
+      num_of_people = #{numOfPeople,jdbcType=INTEGER},
+      contact_tel = #{contactTel,jdbcType=VARCHAR},
+      fax = #{fax,jdbcType=VARCHAR},
+      legal_addr = #{legalAddr,jdbcType=VARCHAR},
+      setup_date = #{setupDate,jdbcType=DATE},
+      year_check = #{yearCheck,jdbcType=CHAR},
+      create_by = #{createBy,jdbcType=BIGINT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=BIGINT},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      product_brand = #{productBrand,jdbcType=VARCHAR},
+      busi_type = #{busiType,jdbcType=VARCHAR},
+      busi_data_id = #{busiDataId,jdbcType=VARCHAR},
+      tmp_grid_id = #{tmpGridId,jdbcType=BIGINT},
+      new_class_code = #{newClassCode,jdbcType=VARCHAR},
+      new_class_date = #{newClassDate,jdbcType=DATE},
+      pre_class_code = #{preClassCode,jdbcType=VARCHAR},
+      pre_check_date = #{preCheckDate,jdbcType=DATE},
+      next_check_date = #{nextCheckDate,jdbcType=DATE},
+      cover_image_id = #{coverImageId,jdbcType=BIGINT},
+      subject_type = #{subjectType,jdbcType=CHAR},
+      code2d = #{code2d,jdbcType=VARCHAR},
+      business_type = #{businessType,jdbcType=VARCHAR},
+      business_term = #{businessTerm,jdbcType=DATE},
+      grade = #{grade,jdbcType=CHAR},
+      last_annual_report = #{lastAnnualReport,jdbcType=VARCHAR},
+      save_time = #{saveTime,jdbcType=TIMESTAMP},
+      keyword_ids = #{keywordIds,jdbcType=VARCHAR},
+      keyword_names = #{keywordNames,jdbcType=VARCHAR},
+      keyword_depts = #{keywordDepts,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
